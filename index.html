@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Imani Coffee Co. | Specialty Coffee Roasted at Origin in Kiambu, Kenya</title>
+<title>Imani Coffee Co. Specialty Coffee Roasted in Kiambu, Kenya</title>
 <meta name="description" content="Specialty coffee roasted at origin in Kiambu, Kenya. Exceptional single-origin lots, roasted to order. Shop seasonal releases and subscribe for early access.">
 <meta name="keywords" content="specialty coffee, Kenya coffee, single-origin, Kikuyu, Kiambu, Nairobi">
-<meta property="og:title" content="Imani Coffee Co. | Specialty Coffee Roasted at Origin in Kiambu, Kenya">
+<meta property="og:title" content="Imani Coffee Co. Specialty Coffee Roasted in Kiambu, Kenya">
 <meta property="og:description" content="Specialty coffee roasted at origin in Kiambu, Kenya. Exceptional single-origin lots, roasted to order.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://njiremike-del.github.io/Imani-coffee-website/">
@@ -14,11 +14,13 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="theme-color" content="#0b2419">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Imani Coffee Co. | Specialty Coffee Roasted at Origin in Kiambu, Kenya">
+<meta name="twitter:title" content="Imani Coffee Co. Specialty Coffee Roasted in Kiambu, Kenya">
 <meta name="twitter:description" content="Specialty coffee roasted at origin in Kiambu, Kenya. Exceptional single-origin lots, roasted to order.">
 <link rel="canonical" href="https://njiremike-del.github.io/Imani-coffee-website/">
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<script src="assets/site-config.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
 :root{--green:#2D5A1B;--deep:#1A1208;--forest:#10291f;--cream:#F9F5EE;--paper:#FFFFFF;--gold:#C8A97A;--gold-hover:#B8996A;--ink:#1A1208;--secondary:#5A4A3A;--muted:#9A8A7A;--line:#E8E2D8;--border-dark:#C8A97A30;--btn-primary-bg:#1A1208;--btn-primary-text:#FFFFFF;--btn-ghost-border:#1A1208;--btn-ghost-text:#1A1208;--max:1320px}
@@ -85,7 +87,7 @@ h1,h2,h3{font-family:"Playfair Display",serif;font-weight:500}h1{font-size:clamp
 .sustain-card p{color:var(--muted);line-height:1.5;font-size:15px;margin:0}
 .sustain-tag{margin-top:20px;font-size:14px;color:var(--muted)}
 .delivery-band{background:var(--cream);padding:32px 0;border-bottom:1px solid var(--line)}
-.delivery-inner{max-width:960px;margin:0 auto;padding:0 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:28px;text-align:center;font-size:14px;color:var(--muted)}
+.delivery-inner{max-width:960px;margin:0 auto;padding:0 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:28px;text-align:center;font-size:14px;color:#5A4A3A}
 .delivery-inner h2{flex-basis:100%;margin:0;color:var(--ink);font-size:clamp(28px,3vw,40px)}
 .delivery-item strong{color:var(--ink);font-weight:600;margin-right:6px}
 @media(max-width:640px){.delivery-inner{flex-direction:column;gap:14px}}
@@ -326,16 +328,16 @@ h1{font-size:clamp(58px,7vw,96px);line-height:.95;margin-bottom:26px}
 .coffee-section .coffee-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-auto-rows:1fr;align-items:stretch;gap:20px}
 .coffee-section .coffee{grid-column:span 2;display:flex;flex-direction:column;min-width:0;height:100%;overflow:hidden;border-color:#e1ddd3;transition:transform .2s ease,box-shadow .2s ease}
 .coffee-section .coffee:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(27,33,28,.12)}
-.coffee-section .coffee:nth-child(4){grid-column:2 / span 2}
-.coffee-section .coffee:nth-child(5){grid-column:4 / span 2}
+.coffee-section .coffee-grid:not(.drip-bag-grid)>.coffee:nth-child(3n+1):last-child{grid-column:3 / span 2}
+.coffee-section .coffee-grid:not(.drip-bag-grid)>.coffee:nth-child(3n+1):nth-last-child(2){grid-column:2 / span 2}
 .coffee-section .product-media{position:relative;width:100%;height:auto!important;aspect-ratio:4/5;overflow:hidden;border-radius:8px 8px 0 0;background:var(--cream)}
 .coffee-section .product-label-layer,.coffee-section .product-photo-layer{position:absolute;inset:0}
 .coffee-section .product-photo-layer{z-index:1;opacity:1}
 .coffee-section .product-label-layer{z-index:2;opacity:0;transform:scale(.96);pointer-events:none;box-shadow:none;transition:opacity 280ms cubic-bezier(.2,.7,.2,1),transform 280ms cubic-bezier(.2,.7,.2,1)}
 .coffee-section .product-photo-layer img,.coffee-section .kirinyaga-label-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .coffee-section .product-photo-layer img{filter:brightness(1);transition:filter 280ms cubic-bezier(.2,.7,.2,1)}
-.coffee-section .product-card.is-label-visible .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px rgba(0,0,0,.28)}
-.coffee-section .product-card.is-label-visible .product-photo-layer img{filter:brightness(.7)}
+.coffee-section .coffee.is-label-visible .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px rgba(0,0,0,.28)}
+.coffee-section .coffee.is-label-visible .product-photo-layer img{filter:brightness(.7)}
 .coffee-section .coffee-badge{position:absolute;top:12px;left:12px;z-index:10}
 .coffee-section .product-view-toggle{display:none}
 .coffee-section .product-media-caption{position:absolute;right:auto;bottom:10px;left:10px;z-index:9;margin:0;padding:5px 8px;border-radius:4px;background:rgba(15,59,42,.9);color:#f5efdc;font-size:11px;opacity:1;transition:opacity .25s ease}
@@ -350,6 +352,9 @@ h1{font-size:clamp(58px,7vw,96px);line-height:.95;margin-bottom:26px}
 .coffee-section .imani-label-spec{display:flex;justify-content:space-between;gap:4%;padding:2% 0;border-bottom:1px solid rgba(245,239,220,.45);font-size:clamp(11px,3cqi,13px);line-height:1.2}
 .coffee-section .imani-label-spec dt{font-weight:600}
 .coffee-section .imani-label-spec dd{margin:0;text-align:right}
+.coffee-section .imani-meter{display:inline-flex;gap:3px;align-items:center}
+.coffee-section .imani-meter-dot{width:7px;height:7px;border:1px solid #f5efdc;border-radius:50%;background:#f5efdc;opacity:.3}
+.coffee-section .imani-meter[data-score="1"] .imani-meter-dot:nth-child(-n+1),.coffee-section .imani-meter[data-score="2"] .imani-meter-dot:nth-child(-n+2),.coffee-section .imani-meter[data-score="3"] .imani-meter-dot:nth-child(-n+3),.coffee-section .imani-meter[data-score="4"] .imani-meter-dot:nth-child(-n+4),.coffee-section .imani-meter[data-score="5"] .imani-meter-dot:nth-child(-n+5){opacity:1}
 .coffee-section .imani-label-notes{max-width:92%;margin:2% 0;padding:3% 6%;border:1px solid #f5efdc;border-radius:999px;color:#f5efdc;font-size:clamp(11px,3cqi,13px);font-weight:600;line-height:1.2}
 .coffee-section .imani-label-weight{margin-bottom:1%;font-size:clamp(11px,3cqi,13px);letter-spacing:.12em}
 .coffee-section .coffee-body{display:flex;flex:1;flex-direction:column;padding:18px 20px 20px}
@@ -370,24 +375,35 @@ h1{font-size:clamp(58px,7vw,96px);line-height:.95;margin-bottom:26px}
 .coffee-section .drip-bag-card .product-label-layer img{object-fit:cover;filter:none}
 .coffee-section .drip-bag-card.drip-label-only .product-view-toggle,.coffee-section .drip-bag-card.drip-label-only .product-media-caption{display:none!important}
 .coffee-section .drip-bag-card .drip-bag-price{color:#42372d}
-.coffee-section .drip-bag-card .drip-bag-whatsapp{display:inline-flex;min-width:44px;min-height:44px;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--green);border-radius:6px;background:var(--green);color:#fff;text-align:center;text-decoration:none}
-.coffee-section .drip-bag-card .drip-bag-whatsapp:hover{background:#173327}
+.coffee-section .drip-bag-card .drip-bag-whatsapp,.coffee-section .coffee-bottom .coffee-whatsapp{display:inline-flex;min-width:44px;min-height:44px;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--green);border-radius:6px;background:var(--green);color:#fff;text-align:center;text-decoration:none}
+.coffee-section .drip-bag-card .drip-bag-whatsapp:hover,.coffee-section .coffee-bottom .coffee-whatsapp:hover{background:#173327}
+.coffee-section .coffee-roast-note{margin:14px 0 0;color:#5a4a3a;font-size:13px;font-weight:600;line-height:1.5}
+.coffee-section .drip-bag-card .product-label-layer img{object-fit:cover}
+.form-status{margin:14px 0 0;color:#8a2c20;font-size:14px;line-height:1.5}
+.form-status[hidden]{display:none}
+.sustain-card .icon svg{width:28px;height:28px;fill:none;stroke:#8a6d38;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.registered-name,.footer-coming-soon{margin:10px 0 0;color:#d8c28e;font-size:12px}
+.footer-coming-soon{display:flex;flex-direction:column;gap:4px;color:#c5c9c3}
+.footer-coming-soon strong{color:#d8c28e;text-transform:uppercase;letter-spacing:.12em}
+.launch-note{min-height:34px;padding:8px 20px;background:#0f3b2a;color:#f5efdc;text-align:center;font-size:12px;line-height:1.5;letter-spacing:.04em}
+body.has-launch-note header{top:var(--launch-note-height)}
 @media(max-width:950px){
   .coffee-section .coffee-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
-  .coffee-section .coffee:nth-child(4){grid-column:span 2}
-  .coffee-section .coffee:nth-child(5){grid-column:2 / span 2}
+  .coffee-section .coffee{grid-column:span 2}
+  .coffee-section .coffee-grid:not(.drip-bag-grid)>.coffee:nth-child(2n+1):last-child{grid-column:2 / span 2}
+  .coffee-section .coffee-grid:not(.drip-bag-grid)>.coffee:nth-child(2n+1):nth-last-child(2){grid-column:1 / span 2}
   .coffee-section .drip-bag-grid .drip-bag-card{grid-column:2 / span 2}
 }
 @media(max-width:560px){
   .coffee-section .coffee-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px}
-  .coffee-section .coffee,.coffee-section .coffee:nth-child(4),.coffee-section .coffee:nth-child(5){grid-column:span 2}
+  .coffee-section .coffee{grid-column:span 2}
   .coffee-section .coffee-body{padding:18px}
   .coffee-section .drip-bag-grid .drip-bag-card{grid-column:span 2}
 }
 @media(hover:hover){
   .coffee-section .product-view-toggle{display:none!important}
-  .coffee-section .product-card:hover .product-label-layer,.coffee-section .product-card:focus-within .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px rgba(0,0,0,.28)}
-  .coffee-section .product-card:hover .product-photo-layer img,.coffee-section .product-card:focus-within .product-photo-layer img{filter:brightness(.7)}
+  .coffee-section .coffee:hover .product-label-layer,.coffee-section .coffee:focus-within .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px rgba(0,0,0,.28)}
+  .coffee-section .coffee:hover .product-photo-layer img,.coffee-section .coffee:focus-within .product-photo-layer img{filter:brightness(.7)}
 }
 @media(hover:none){
   .coffee-section .product-view-toggle{position:absolute;right:10px;bottom:10px;z-index:11;display:grid;min-width:44px;min-height:44px;place-items:center;padding:8px;border:1px solid #f5efdc;border-radius:50%;background:#0f3b2a;color:#f5efdc;cursor:pointer}
@@ -471,10 +487,10 @@ input,select,textarea{font-size:16px!important}
 body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-float,body:has(.cart-drawer.open) .wa-float,body:has(.checkout-modal:not([hidden])) .wa-float{display:none}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","name":"Imani Coffee Co.","description":"Specialty coffee roasted at origin in Kiambu, Kenya. Single-origin lots, roasted to order.","url":"https://njiremike-del.github.io/Imani-coffee-website/","email":"getimanicoffee@gmail.com","image":"https://i.postimg.cc/9DgdBRWh/Whats-App-Image-2026-08-28-at-13-42-24.jpg","address":{"@type":"PostalAddress","addressLocality":"Kikuyu","addressRegion":"Kiambu County","addressCountry":"KE"},"sameAs":["https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=","https://x.com/Get_ImaniCoffee"]},{"@type":"ItemList","name":"Imani Coffee Co. Coffees","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Kenya AA","description":"Kenya · Kirinyaga. Blackcurrant · Citrus · Brown Sugar. Washed · SL28 · SL34.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1250"}}},{"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Kenya AB","description":"Kenya · Nyeri. Raisin · Caramel · Orange. Washed · SL28 · Ruiru 11.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1150"}}},{"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Meru","description":"Kenya · Meru. Blackcurrant · Citrus · Brown Sugar. Washed · SL28 · SL34.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1250"}}},{"@type":"ListItem","position":4,"item":{"@type":"Product","name":"Meru Peaberry","description":"Kenya · Meru. Raisin · Caramel · Orange. Washed · Peaberry.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1350"}}},{"@type":"ListItem","position":5,"item":{"@type":"Product","name":"Nyeri AA Fruit Infused","description":"Limited edition. Kenya · Nyeri. Berry · Tropical Fruit · Honey. Fruit Infused · AA.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1450"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://njiremike-del.github.io/Imani-coffee-website/#organization","name":"Imani Coffee Co.","url":"https://njiremike-del.github.io/Imani-coffee-website/","logo":"https://njiremike-del.github.io/Imani-coffee-website/assets/Imani_Logo_White_Transparent.png","sameAs":["https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=","https://x.com/Get_ImaniCoffee"],"address":{"@type":"PostalAddress","addressLocality":"Kikuyu","addressRegion":"Kiambu County","addressCountry":"KE"}},{"@type":"LocalBusiness","@id":"https://njiremike-del.github.io/Imani-coffee-website/#localbusiness","name":"Imani Coffee Co.","description":"Specialty coffee roasted at origin in Kiambu, Kenya. Single-origin lots, roasted to order.","url":"https://njiremike-del.github.io/Imani-coffee-website/","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/og-image.png","address":{"@type":"PostalAddress","addressLocality":"Kikuyu","addressRegion":"Kiambu County","addressCountry":"KE"},"sameAs":["https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=","https://x.com/Get_ImaniCoffee"],"parentOrganization":{"@id":"https://njiremike-del.github.io/Imani-coffee-website/#organization"}},{"@type":"ItemList","name":"Imani Coffee Co. Coffees","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Kenya AA","description":"Kenya · Kirinyaga. Blackcurrant · Citrus · Brown Sugar. Washed · SL28 · SL34.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-kenya-aa-250g.webp","offers":{"@type":"Offer","priceCurrency":"KES","price":"1250"}}},{"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Kenya AB","description":"Kenya · Nyeri. Raisin · Caramel · Orange. Washed · SL28 · Ruiru 11.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-kenya-shared-250g.webp","offers":{"@type":"Offer","priceCurrency":"KES","price":"1150"}}},{"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Meru","description":"Kenya · Meru. Red Apple · Black Tea · Molasses. Washed · SL28 · Batian.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-meru-250g.webp","offers":{"@type":"Offer","priceCurrency":"KES","price":"1250"}}},{"@type":"ListItem","position":4,"item":{"@type":"Product","name":"Meru Peaberry","description":"Kenya · Meru. Plum · Cocoa · Honey. Washed · Peaberry.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-meru-peaberry-250g.webp","offers":{"@type":"Offer","priceCurrency":"KES","price":"1350"}}},{"@type":"ListItem","position":5,"item":{"@type":"Product","name":"Nyeri AA Fruit Infused","description":"Kenya · Nyeri. Berry · Tropical Fruit · Honey. Fruit Infused · AA.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-kenya-shared-250g.webp","offers":{"@type":"Offer","priceCurrency":"KES","price":"1450"}}},{"@type":"ListItem","position":6,"item":{"@type":"Product","name":"Kenya Kirinyaga, Ja'adi, anaerobic","description":"Kenya · Kirinyaga. Mango · Orange · Chocolate. Anaerobic fermentation · Ja'adi · 2000 masl · Kamavinde.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-kenya-shared-250g.webp"}},{"@type":"ListItem","position":7,"item":{"@type":"Product","name":"Kenya Drip Bags","description":"Kenya. Floral · Peach · Chocolate. Washed · SL24 · Kamavinde. Pack of 10 drip bags.","image":"https://njiremike-del.github.io/Imani-coffee-website/assets/imani-drip-box-label.webp"}}]}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes coffee \"specialty\"?","acceptedAnswer":{"@type":"Answer","text":"Specialty coffee scores 80+ on the SCA's 100-point scale, graded by trained cuppers. It's also traceable: you know the country, region, and often the farm or cooperative it came from."}},{"@type":"Question","name":"How is specialty different from supermarket coffee?","acceptedAnswer":{"@type":"Answer","text":"Supermarket coffee is usually blended for consistency and roasted dark to hide defects. Specialty is sourced for flavour, roasted to show it, and sold with its origin and roast date."}},{"@type":"Question","name":"Why is specialty coffee more expensive?","acceptedAnswer":{"@type":"Answer","text":"It's hand-picked at peak ripeness, processed carefully, and sold at a quality premium, so the farmer earns more per kilo. You're paying for fewer defects and a cup that tastes like where it grew."}},{"@type":"Question","name":"How fresh should my coffee be?","acceptedAnswer":{"@type":"Answer","text":"Our coffee is roasted to order and tastes best 7-21 days after the roast date. It stays good for about 4 weeks. Check the roast date on your bag."}},{"@type":"Question","name":"Should I buy whole bean or ground?","acceptedAnswer":{"@type":"Answer","text":"Whole bean. Ground coffee loses aroma fast. A decent burr grinder is the best upgrade you can make."}},{"@type":"Question","name":"How should I store my coffee?","acceptedAnswer":{"@type":"Answer","text":"Keep it in an airtight container, cool and dark. Avoid the fridge or freezer for daily use, because moisture and odours get in."}},{"@type":"Question","name":"What's the right coffee-to-water ratio?","acceptedAnswer":{"@type":"Answer","text":"Start at 1 part coffee to 16 parts water (for example, 18g coffee to 288g water) with water at 93–96°C. Adjust to taste."}},{"@type":"Question","name":"Why is Kenyan coffee considered among the best in the world?","acceptedAnswer":{"@type":"Answer","text":"Altitude, volcanic red soil, and rigorous processing. Most is grown at roughly 1,500-2,100m, which slows cherry development and builds complexity. Combined with prized varieties and careful washing, this gives Kenyan coffee its signature clarity and sweetness."}},{"@type":"Question","name":"What does Kenyan coffee taste like?","acceptedAnswer":{"@type":"Answer","text":"Bright, juicy acidity with notes like blackcurrant, grapefruit, and a savoury tomato-like quality, plus a sweet, syrupy body. It's vivid, not bitter."}},{"@type":"Question","name":"What are SL28 and SL34?","acceptedAnswer":{"@type":"Answer","text":"Varieties developed by Scott Laboratories in the 1930s, prized for cup quality. Other Kenyan varieties include Ruiru 11 and Batian, which are bred for disease resistance."}},{"@type":"Question","name":"What do AA, AB, and PB mean? Is AA the best?","acceptedAnswer":{"@type":"Answer","text":"No. Grades measure bean size, not quality. AA is the largest screen size, AB is slightly smaller, and PB is peaberry (a single round bean instead of two). A well-grown AB can outscore an AA."}},{"@type":"Question","name":"How is Kenyan coffee processed?","acceptedAnswer":{"@type":"Answer","text":"Mostly fully washed. Cherries are pulped, fermented, washed, soaked, and dried on raised beds. This produces the clean, bright cup Kenya is known for."}},{"@type":"Question","name":"Where in Kenya is coffee grown?","acceptedAnswer":{"@type":"Answer","text":"Key regions include Nyeri, Kirinyaga, Murang'a, Kiambu, and Embu, around Mt Kenya and the Aberdares. Smaller pockets grow around Kisii and Bungoma."}},{"@type":"Question","name":"When is the Kenyan harvest?","acceptedAnswer":{"@type":"Answer","text":"The main crop is roughly October-December, with a smaller \"fly crop\" around mid-year. Timing varies by region."}},{"@type":"Question","name":"How is Kenyan coffee sold?","acceptedAnswer":{"@type":"Answer","text":"Largely through the Nairobi Coffee Exchange auction, plus direct and cooperative sales. This is why top lots are so competitive, and why traceability matters."}},{"@type":"Question","name":"What brew method suits Kenyan coffee best?","acceptedAnswer":{"@type":"Answer","text":"Filter methods (V60, Chemex, AeroPress) show off its acidity and clarity. It also makes a fruit-forward espresso, though it can taste sharp if under-extracted."}},{"@type":"Question","name":"Where does Imani's coffee come from?","acceptedAnswer":{"@type":"Answer","text":"Our current lots come from Kirinyaga, Nyeri and Meru. Each coffee lists its region, grade, variety and processing. Use the trace number on your bag and we will reply on WhatsApp with the farm, lot and roast date."}},{"@type":"Question","name":"When do you roast and ship?","acceptedAnswer":{"@type":"Answer","text":"Every order is roasted to order and dispatched within 48 hours. Delivery then takes 24–48 hours in Nairobi and Kiambu, or up to 4 days countrywide via Pickup Mtaani. Delivery is free on orders over KSh 2,500."}},{"@type":"Question","name":"How do I order and pay?","acceptedAnswer":{"@type":"Answer","text":"Add your coffee to the cart, choose your delivery area and send the order to us on WhatsApp. We confirm with M-Pesa payment details and your roast date."}},{"@type":"Question","name":"How does the subscription work?","acceptedAnswer":{"@type":"Answer","text":"Choose 100g or 250g. We roast and deliver every two weeks, you save 15% on every bag, and you can pause or cancel anytime."}},{"@type":"Question","name":"Do you offer wholesale?","acceptedAnswer":{"@type":"Answer","text":"Yes. Minimum order is 5kg, from KSh 2,200 per kg, delivered bi-weekly in Nairobi and Kiambu. Message us on WhatsApp to start a conversation or book a cupping."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes coffee \"specialty\"?","acceptedAnswer":{"@type":"Answer","text":"Specialty coffee scores 80+ on the SCA's 100-point scale, graded by trained cuppers. It's also traceable: you know the country, region, and often the farm or cooperative it came from."}},{"@type":"Question","name":"How is specialty different from supermarket coffee?","acceptedAnswer":{"@type":"Answer","text":"Supermarket coffee is usually blended for consistency and roasted dark to hide defects. Specialty is sourced for flavour, roasted to show it, and sold with its origin and roast date."}},{"@type":"Question","name":"Why is specialty coffee more expensive?","acceptedAnswer":{"@type":"Answer","text":"It's hand-picked at peak ripeness, processed carefully, and sold at a quality premium, so the farmer earns more per kilo. You're paying for fewer defects and a cup that tastes like where it grew."}},{"@type":"Question","name":"How fresh should my coffee be?","acceptedAnswer":{"@type":"Answer","text":"Our coffee is roasted to order and tastes best 7-21 days after the roast date. It stays good for about 4 weeks. Check the roast date on your bag."}},{"@type":"Question","name":"Should I buy whole bean or ground?","acceptedAnswer":{"@type":"Answer","text":"Whole bean. Ground coffee loses aroma fast. A decent burr grinder is the best upgrade you can make."}},{"@type":"Question","name":"How should I store my coffee?","acceptedAnswer":{"@type":"Answer","text":"Keep it in an airtight container, cool and dark. Avoid the fridge or freezer for daily use, because moisture and odours get in."}},{"@type":"Question","name":"What's the right coffee-to-water ratio?","acceptedAnswer":{"@type":"Answer","text":"Start at 1 part coffee to 16 parts water (for example, 18g coffee to 288g water) with water at 93–96°C. Adjust to taste."}},{"@type":"Question","name":"Why is Kenyan coffee considered among the best in the world?","acceptedAnswer":{"@type":"Answer","text":"Altitude, volcanic red soil, and rigorous processing. Most is grown at roughly 1,500-2,100m, which slows cherry development and builds complexity. Combined with prized varieties and careful washing, this gives Kenyan coffee its signature clarity and sweetness."}},{"@type":"Question","name":"What does Kenyan coffee taste like?","acceptedAnswer":{"@type":"Answer","text":"Bright, juicy acidity with notes like blackcurrant, grapefruit, and a savoury tomato-like quality, plus a sweet, syrupy body. It's vivid, not bitter."}},{"@type":"Question","name":"What are SL28 and SL34?","acceptedAnswer":{"@type":"Answer","text":"Varieties developed by Scott Laboratories in the 1930s, prized for cup quality. Other Kenyan varieties include Ruiru 11 and Batian, which are bred for disease resistance."}},{"@type":"Question","name":"What do AA, AB, and PB mean? Is AA the best?","acceptedAnswer":{"@type":"Answer","text":"No. Grades measure bean size, not quality. AA is the largest screen size, AB is slightly smaller, and PB is peaberry (a single round bean instead of two). A well-grown AB can outscore an AA."}},{"@type":"Question","name":"How is Kenyan coffee processed?","acceptedAnswer":{"@type":"Answer","text":"Mostly fully washed. Cherries are pulped, fermented, washed, soaked, and dried on raised beds. This produces the clean, bright cup Kenya is known for."}},{"@type":"Question","name":"Where in Kenya is coffee grown?","acceptedAnswer":{"@type":"Answer","text":"Key regions include Nyeri, Kirinyaga, Murang'a, Kiambu, and Embu, around Mt Kenya and the Aberdares. Smaller pockets grow around Kisii and Bungoma."}},{"@type":"Question","name":"When is the Kenyan harvest?","acceptedAnswer":{"@type":"Answer","text":"The main crop is roughly October-December, with a smaller \"fly crop\" around mid-year. Timing varies by region."}},{"@type":"Question","name":"How is Kenyan coffee sold?","acceptedAnswer":{"@type":"Answer","text":"Largely through the Nairobi Coffee Exchange auction, plus direct and cooperative sales. This is why top lots are so competitive, and why traceability matters."}},{"@type":"Question","name":"What brew method suits Kenyan coffee best?","acceptedAnswer":{"@type":"Answer","text":"Filter methods (V60, Chemex, AeroPress) show off its acidity and clarity. It also makes a fruit-forward espresso, though it can taste sharp if under-extracted."}},{"@type":"Question","name":"Where does Imani's coffee come from?","acceptedAnswer":{"@type":"Answer","text":"Our current lots come from Kirinyaga, Nyeri and Meru. Each coffee lists its region, grade, variety and processing. Use the trace number on your bag and we will reply on WhatsApp with the farm, lot and roast date."}},{"@type":"Question","name":"When do you roast and ship?","acceptedAnswer":{"@type":"Answer","text":"Every order is roasted to order and dispatched within 48 hours. Delivery then takes 24–48 hours in Nairobi and Kiambu, or up to 4 days countrywide via Pickup Mtaani. Delivery is free on orders over KSh 2,500."}},{"@type":"Question","name":"How do I order and pay?","acceptedAnswer":{"@type":"Answer","text":"Add your coffee to the cart, choose your delivery area and send the order to us on WhatsApp. We confirm with M-Pesa payment details and your roast date."}},{"@type":"Question","name":"How does the subscription work?","acceptedAnswer":{"@type":"Answer","text":"Choose 100g or 250g. We roast and deliver every two weeks, you save 15% on every bag, and you can pause or cancel anytime."}},{"@type":"Question","name":"Do you offer wholesale?","acceptedAnswer":{"@type":"Answer","text":"Yes. Minimum order is 5kg. Contact us for current wholesale rates, delivered bi-weekly in Nairobi and Kiambu. Message us on WhatsApp to start a conversation or book a cupping."}}]}
 </script>
 </head>
 <body>
@@ -506,23 +522,25 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 
 <section class="hero" id="main"><a id="home"></a><div class="container"><div class="hero-content">
 <h1>Specialty Coffee.<br>Roasted at Origin.</h1>
-<p class="hero-promise">We select rare lots that tell a story, those with character.</p>
+<p class="hero-promise">Rare lots, roasted with care to let their character shine.</p>
 <div class="actions"><a class="btn gold" href="#coffee">Shop Coffee</a><a class="btn" href="#story">Our Story</a></div>
 </div></div></section>
 
 <section class="section coffee-section" id="coffee"><div class="container">
-<div class="section-head"><div class="num">01 / Our Coffees</div><div><h2>COFFEE BEANS.</h2><p class="lead">Seasonal lots selected for sweetness, clarity and distinctive origin.</p></div></div>
+<div class="section-head"><div class="num">01 / Our Coffees</div><div><h2>COFFEE BEANS.</h2><p class="lead">Seasonal lots selected for sweetness, clarity and distinctive origin.</p><p class="coffee-roast-note">Roasted to order · Best 7–21 days from roast</p></div></div>
 <div class="coffee-grid">
-<!-- TODO: replace with Imani bag mockup — tribal-pattern coffee bag photo. -->
-<article class="coffee" data-product='{"name":"Kenya AA","origin":"Kenya · Kirinyaga","prices":{"whole":{"100g":450,"250g":1250,"1kg":4200},"ground":{"100g":480,"250g":1300,"1kg":4400}}}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Imani Kenya AA bag in patterned packaging, upright against a pale background." width="136" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kenya AA</h3><p>Blackcurrant · Citrus · Brown Sugar<br>Washed · SL28 · SL34</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,250 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Kenya AA to cart">+</button></div></div></article>
-<!-- TODO: replace with Imani bag mockup — tribal-pattern coffee bag photo. -->
-<article class="coffee" data-product='{"name":"Kenya AB","origin":"Kenya · Nyeri","prices":{"whole":{"100g":410,"250g":1150,"1kg":3900},"ground":{"100g":440,"250g":1200,"1kg":4100}}}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Kenya AB product card with the shared Imani Kenya coffee bag photo." width="136" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Kenya AB</h3><p>Raisin · Caramel · Orange<br>Washed · SL28 · Ruiru 11</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,150 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Kenya AB to cart">+</button></div></div></article>
-<!-- TODO: replace with Imani bag mockup — current photo shows a plain white bag. -->
-<article class="coffee" data-product='{"name":"Meru","origin":"Kenya · Meru","prices":{"whole":{"100g":450,"250g":1250,"1kg":4200},"ground":{"100g":480,"250g":1300,"1kg":4400}}}'><div class="coffee-photo"><img src="https://i.postimg.cc/v42rvgGp/Whats-App-Image-2026-08-28-at-13-42-25-(1).jpg" alt="Meru coffee bag showing its origin label and coffee packaging." width="136" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Meru</div><h3>Meru</h3><p>Red Apple · Black Tea · Molasses<br>Washed · SL28 · Batian</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,250 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Meru to cart">+</button></div></div></article>
-<!-- TODO: replace with Imani bag mockup — current photo shows cherries. -->
-<article class="coffee" data-product='{"name":"Meru Peaberry","origin":"Kenya · Meru","prices":{"whole":{"100g":485,"250g":1350,"1kg":4550},"ground":{"100g":515,"250g":1400,"1kg":4750}}}'><div class="coffee-photo"><img src="https://i.postimg.cc/Bj7TCLJk/Whats-App-Image-2026-08-28-at-13-42-25-(2).jpg" alt="Meru Peaberry coffee bag with its label facing forward." width="174" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Meru</div><h3>Meru Peaberry</h3><p>Plum · Cocoa · Honey<br>Washed · Peaberry</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,350 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Meru Peaberry to cart">+</button></div></div></article>
-<!-- TODO: replace with Imani bag mockup — tribal-pattern coffee bag photo. -->
-<article class="coffee" data-product='{"name":"Nyeri AA Fruit Infused","origin":"Kenya · Nyeri","prices":{"whole":{"100g":520,"250g":1450,"1kg":4900},"ground":{"100g":550,"250g":1500,"1kg":5100}}}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Nyeri AA Fruit Infused product card with the shared Imani Kenya coffee bag photo." width="136" height="180" loading="lazy"><span class="coffee-badge">Limited Edition</span></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Nyeri AA Fruit Infused</h3><p>Berry · Tropical Fruit · Honey<br>Fruit Infused · AA</p><p class="fruit-infusion-note" hidden>Fruit infused: [FRUIT INFUSION EXPLANATION]</p><!-- TODO: fill before publishing --><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,450 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Nyeri AA Fruit Infused to cart">+</button></div></div></article>
+<!-- TODO: replace patterned photo with a unique Kenya AA bag image. -->
+<article class="coffee" data-product='{"name":"Kenya AA","origin":"Kenya · Kirinyaga","prices":{"whole":{"100g":450,"250g":1250,"1kg":4200},"ground":{"100g":480,"250g":1300,"1kg":4400}}}'><div class="coffee-photo"><img src="assets/imani-kenya-aa-250g.webp" alt="Imani Kenya AA, Kenya Kirinyaga, washed, 250g bag" width="1200" height="1588" decoding="async" loading="eager"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kenya AA</h3><p>Blackcurrant · Citrus · Brown Sugar<br>Washed · SL28 · SL34</p><div class="coffee-bottom"><span>KSh 1,250 / 250g</span><button class="plus" type="button" aria-label="Add Kenya AA to order">+</button></div></div></article>
+<!-- TODO: Kenya AB and Nyeri AA Fruit Infused share this tribal-pattern photo; Kirinyaga temporarily reuses it too. Replace with unique Imani bag mockups when supplied. -->
+<article class="coffee" data-product='{"name":"Kenya AB","origin":"Kenya · Nyeri","prices":{"whole":{"100g":410,"250g":1150,"1kg":3900},"ground":{"100g":440,"250g":1200,"1kg":4100}}}'><div class="coffee-photo"><img src="assets/imani-kenya-shared-250g.webp" alt="Imani Kenya AB, Kenya Nyeri, washed, 250g bag" width="1200" height="1588" decoding="async" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Kenya AB</h3><p>Raisin · Caramel · Orange<br>Washed · SL28 · Ruiru 11</p><div class="coffee-bottom"><span>KSh 1,150 / 250g</span><button class="plus" type="button" aria-label="Add Kenya AB to order">+</button></div></div></article>
+<!-- TODO: replace the plain white bag photo with an Imani bag mockup. -->
+<article class="coffee" data-product='{"name":"Meru","origin":"Kenya · Meru","prices":{"whole":{"100g":450,"250g":1250,"1kg":4200},"ground":{"100g":480,"250g":1300,"1kg":4400}}}'><div class="coffee-photo"><img src="assets/imani-meru-250g.webp" alt="Imani Meru, Kenya Meru, washed, 250g bag" width="1200" height="1588" decoding="async" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Meru</div><h3>Meru</h3><p>Red Apple · Black Tea · Molasses<br>Washed · SL28 · Batian</p><div class="coffee-bottom"><span>KSh 1,250 / 250g</span><button class="plus" type="button" aria-label="Add Meru to order">+</button></div></div></article>
+<!-- TODO: replace the cherries photo with an Imani bag mockup. -->
+<article class="coffee" data-product='{"name":"Meru Peaberry","origin":"Kenya · Meru","prices":{"whole":{"100g":485,"250g":1350,"1kg":4550},"ground":{"100g":515,"250g":1400,"1kg":4750}}}'><div class="coffee-photo"><img src="assets/imani-meru-peaberry-250g.webp" alt="Imani Meru Peaberry, Kenya Meru, washed, 250g bag" width="1200" height="1241" decoding="async" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Meru</div><h3>Meru Peaberry</h3><p>Plum · Cocoa · Honey<br>Washed · Peaberry</p><div class="coffee-bottom"><span>KSh 1,350 / 250g</span><button class="plus" type="button" aria-label="Add Meru Peaberry to order">+</button></div></div></article>
+<!-- TODO: Kenya AB and Nyeri AA Fruit Infused share this tribal-pattern photo; Kirinyaga temporarily reuses it too. Replace with unique Imani bag mockups when supplied. -->
+<article class="coffee" data-product='{"name":"Nyeri AA Fruit Infused","origin":"Kenya · Nyeri","prices":{"whole":{"100g":520,"250g":1450,"1kg":4900},"ground":{"100g":550,"250g":1500,"1kg":5100}}}'><div class="coffee-photo"><img src="assets/imani-kenya-shared-250g.webp" alt="Imani Nyeri AA Fruit Infused, Kenya Nyeri, fruit infused, 250g bag" width="1200" height="1588" decoding="async" loading="lazy"><span class="coffee-badge">Limited Edition</span></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Nyeri AA Fruit Infused</h3><p>Berry · Tropical Fruit · Honey<br>Fruit Infused · AA</p><p class="fruit-infusion-note" hidden>Fruit infused: [FRUIT INFUSION EXPLANATION]</p><!-- TODO: fill before publishing --><div class="coffee-bottom"><span>KSh 1,450 / 250g</span><button class="plus" type="button" aria-label="Add Nyeri AA Fruit Infused to order">+</button></div></div></article>
+<!-- TODO: replace the temporary Kenya bag photo and generated label with the supplied Kirinyaga 1kg photo and label assets; add retail prices when confirmed. -->
+<article class="coffee" data-product='{"name":"Kenya Kirinyaga, Ja&apos;adi, anaerobic","origin":"Kenya · Kirinyaga","altitude":"2000 masl","producer":"Kamavinde","intensity":4,"acidity":3,"weight":"1KG"}' data-price=""><div class="coffee-photo"><img src="assets/imani-kenya-shared-250g.webp" alt="Imani Kenya Kirinyaga, Ja&apos;adi, anaerobic fermentation, 1kg bag" width="1200" height="1588" decoding="async" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kenya Kirinyaga, Ja&apos;adi, anaerobic</h3><p>Mango · Orange · Chocolate<br>Anaerobic fermentation · Ja&apos;adi</p><div class="coffee-bottom"><span class="product-price" data-price-label>Price on request</span><a class="coffee-whatsapp" href="https://wa.me/254704604260?text=Hi%20Imani%2C%20I%27d%20like%20to%20order%20Kenya%20Kirinyaga%20coffee" target="_blank" rel="noopener">Ask on WhatsApp</a></div></div></article>
 </div>
 <section class="drip-bag-subsection" aria-labelledby="drip-bag-heading">
   <div class="drip-bag-header">
@@ -534,16 +552,16 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
     <!-- TODO: set price once confirmed. -->
     <!-- TODO: add net weight per sachet and box total. -->
     <!-- TODO: artwork still contains lowercase "kenya", "Floral,Peach, chocolaty" spacing, lowercase "washed"/"Sl 24", and an unconfirmed region (Nyeri vs Kirinyaga); replace when corrected artwork is ready. -->
+    <!-- TODO: replace the supplied label artwork in assets/imani-drip-box-photo.png with a real Drip Bags box photo. -->
     <article class="coffee drip-bag-card" data-product='{"name":"Kenya Drip Bags","origin":"Kenya"}' data-price="" data-photo="assets/imani-drip-box-photo.png">
       <div class="coffee-photo">
-        <img src="assets/imani-drip-box-photo.png?v=1" alt="Imani Kenya Drip Bags label" width="768" height="947" loading="lazy" decoding="async">
+        <img src="assets/imani-drip-box-label.webp?v=1" alt="Imani Kenya Drip Bags label" width="1554" height="1916" loading="lazy" decoding="async">
       </div>
       <div class="coffee-body">
         <div class="origin">Kenya</div>
         <h3>Kenya Drip Bags</h3>
         <p>Floral · Peach · Chocolate<br>Washed · SL24 · Kamavinde</p>
         <p>Pack: 10 drip bags</p>
-        <p class="roast-info">Roasted to order · Best 7–21 days from roast</p>
         <div class="coffee-bottom">
           <span class="drip-bag-price">Price on request</span>
           <a class="drip-bag-whatsapp" href="https://wa.me/254704604260?text=Hi%20Imani%2C%20I%27d%20like%20to%20order%20the%20Kenya%20Drip%20Bags%20%2810%20pack%29" target="_blank" rel="noopener">Ask on WhatsApp</a>
@@ -567,15 +585,22 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
   if(!section)return;
   const cards=[...section.querySelectorAll('.coffee')];
   const escapeHTML=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const formatDataPrice=value=>{
+    if(!value)return 'Price on request';
+    const amount=Number(value);
+    if(!Number.isFinite(amount)||amount<=0)throw new Error(`Invalid data-price value: ${value}`);
+    return `KSh ${amount.toLocaleString('en-KE')}`;
+  };
+  const meterMarkup=(label,value)=>`<span class="imani-meter" data-score="${value}" role="img" aria-label="${label} ${value} out of 5">${Array.from({length:5},()=>'<span class="imani-meter-dot" aria-hidden="true"></span>').join('')}</span>`;
   const renderLabel=(data,origin,notes,process,variety,intensity,acidity)=>{
     const specs=[];
     if(process)specs.push(['Processing',process]);
     if(variety)specs.push(['Variety',variety]);
     if(data.altitude)specs.push(['Altitude',data.altitude]);
     if(data.producer)specs.push(['Producer',data.producer]);
-    if(intensity)specs.push(['Intensity',`${intensity}/5`]);
-    if(acidity)specs.push(['Acidity',`${acidity}/5`]);
-    return `<div class="imani-label"><img class="imani-label-logo" src="assets/Imani_Logo_White_Transparent.png" alt="" width="220" height="64" loading="lazy" decoding="async"><span class="imani-label-brand">Specialty Coffee Co</span><span class="imani-label-country">${escapeHTML(origin.split('·')[0].trim().toUpperCase())}</span><strong class="imani-label-name">${escapeHTML(data.name)}</strong><dl class="imani-label-specs">${specs.map(([label,value])=>`<div class="imani-label-spec"><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join('')}</dl><p class="imani-label-notes">${escapeHTML(notes)}</p><span class="imani-label-weight">NET WEIGHT 250GMS</span></div>`;
+    if(intensity)specs.push(['Intensity',meterMarkup('Intensity',intensity),true]);
+    if(acidity)specs.push(['Acidity',meterMarkup('Acidity',acidity),true]);
+    return `<div class="imani-label" style="--intensity:${intensity||0};--acidity:${acidity||0}"><img class="imani-label-logo" src="assets/Imani_Logo_White_Transparent.png" alt="" width="220" height="64" loading="lazy" decoding="async"><span class="imani-label-brand">Specialty Coffee Co</span><span class="imani-label-country">${escapeHTML(origin.split('·')[0].trim().toUpperCase())}</span><strong class="imani-label-name">${escapeHTML(data.name)}</strong><dl class="imani-label-specs">${specs.map(([label,value,isMeter])=>`<div class="imani-label-spec"><dt>${escapeHTML(label)}</dt><dd>${isMeter?value:escapeHTML(value)}</dd></div>`).join('')}</dl><p class="imani-label-notes">${escapeHTML(notes)}</p><span class="imani-label-weight">NET WEIGHT ${escapeHTML(data.weight||'250GMS')}</span></div>`;
   };
   // TODO: Kenya AA — altitude and producer are absent from product data.
   // TODO: Kenya AB — altitude, producer, intensity and acidity are absent from product data.
@@ -604,7 +629,7 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
       media.prepend(labelLayer);
       card.classList.add('product-card','drip-label-only');
       const price=card.dataset.price.trim();
-      body.querySelector('.drip-bag-price').textContent=price||'Price on request';
+      body.querySelector('.drip-bag-price').textContent=formatDataPrice(price);
       const priceRow=body.querySelector('.coffee-bottom');
       if(priceRow)body.appendChild(priceRow);
       const photoPath=card.dataset.photo.trim();
@@ -647,8 +672,8 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
           caption.className='product-media-caption';
           caption.textContent='Hover for specs';
           media.appendChild(caption);
-          card.addEventListener('pointerenter',updateLayerAccessibility);
-          card.addEventListener('pointerleave',updateLayerAccessibility);
+          card.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch')card.classList.add('is-label-visible');updateLayerAccessibility();});
+          card.addEventListener('pointerleave',event=>{if(event.pointerType!=='touch')card.classList.remove('is-label-visible');updateLayerAccessibility();});
           card.addEventListener('focusin',updateLayerAccessibility);
           card.addEventListener('focusout',()=>requestAnimationFrame(updateLayerAccessibility));
           updateLayerAccessibility();
@@ -657,17 +682,18 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
       }
       return;
     }
+    const dataPrice=body.querySelector('[data-price-label]');
+    if(dataPrice)dataPrice.textContent=formatDataPrice(card.dataset.price.trim());
     const lines=body.querySelector(':scope > p:not(.roast-info)').innerHTML.split(/<br\s*\/?>/i).map(line=>line.replace(/<[^>]*>/g,'').trim());
     const notes=lines[0]||'';
     const [process='',...varietyParts]=(lines[1]||'').split(' · ');
     const variety=varietyParts.join(' · ');
-    const isKirinyaga=origin.toLowerCase().includes('kirinyaga');
-    const intensity=isKirinyaga?4:null;
-    const acidity=isKirinyaga?3:null;
-    card.dataset.intensity=isKirinyaga?'4':'';
-    card.dataset.acidity=isKirinyaga?'3':'';
+    const intensity=Number.isFinite(product.intensity)?product.intensity:null;
+    const acidity=Number.isFinite(product.acidity)?product.acidity:null;
+    card.dataset.intensity=intensity===null?'':String(intensity);
+    card.dataset.acidity=acidity===null?'':String(acidity);
     media.classList.add('product-media');
-    img.alt=`${name} bag`;
+    img.alt=img.alt||`${name} bag`;
     img.decoding='async';
     img.loading='lazy';
     const photoLayer=document.createElement('div');
@@ -707,13 +733,13 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
       toggle.setAttribute('aria-pressed',String(labelVisible));
       toggle.setAttribute('aria-label',labelVisible?'View bag photo':'View label');
     };
-    card.addEventListener('pointerenter',updateLayerAccessibility);
-    card.addEventListener('pointerleave',updateLayerAccessibility);
+    card.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch')card.classList.add('is-label-visible');updateLayerAccessibility();});
+    card.addEventListener('pointerleave',event=>{if(event.pointerType!=='touch')card.classList.remove('is-label-visible');updateLayerAccessibility();});
     card.addEventListener('focusin',updateLayerAccessibility);
     card.addEventListener('focusout',()=>requestAnimationFrame(updateLayerAccessibility));
     updateLayerAccessibility();
     const addButton=body.querySelector('.plus');
-    addButton.setAttribute('aria-label',`Add ${name} to order`);
+    if(addButton)addButton.setAttribute('aria-label',`Add ${name} to order`);
     const priceRow=body.querySelector('.coffee-bottom');
     if(priceRow)body.appendChild(priceRow);
   });
@@ -739,6 +765,15 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 </script>
 </div></section>
 
+<!-- DELIVERY INFO BAND -->
+<section class="delivery-band" id="delivery"><div class="delivery-inner">
+<h2>DELIVERY</h2>
+<div class="delivery-item"><strong>Delivery areas:</strong> Nairobi and Kiambu door-to-door; countrywide to your nearest Pickup Mtaani agent.</div>
+<div class="delivery-item"><strong>Delivery cost:</strong> From KSh 120 to an agent point · KSh 250–350 door-to-door in Nairobi · free on orders over KSh 2,500.</div>
+<div class="delivery-item"><strong>Dispatch:</strong> Within 48 hours of your order.</div>
+<div class="delivery-item"><strong>Transit:</strong> 24–48 hours in Nairobi and Kiambu, or up to 4 days countrywide to your nearest Pickup Mtaani agent.</div>
+</div></section>
+
 <!-- BREW GUIDE SECTION -->
 <section class="section brew-guide" id="brew-guide"><div class="container">
 <div class="section-head"><div class="num">02 / Brewing</div><div><h2>HOW TO BREW IT.</h2><p class="lead">Kenyan coffee is bright and fruity. It rewards a clean brew and a little patience. Here is how to get the best from your bag, whether or not you own equipment.</p></div></div>
@@ -751,7 +786,7 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <li>Stir once and leave it for four minutes. A crust will form on top.</li>
 <li>Break the crust with a spoon, skim off what floats, then pour through a sieve into your second mug.</li>
 </ol>
-<p class="brew-closing">That is the same method professional cuppers use to taste coffee. It costs nothing and it works.</p>
+<p class="brew-closing">This is a simplified version of how professional cuppers taste coffee.</p>
 </div>
 
 <div class="brew-group">
@@ -760,19 +795,11 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <div class="sustain-card"><h4>FRENCH PRESS</h4><p>Coarse grind, like sea salt.<br>60g coffee per litre of water. Four minutes, then press slowly. Pour it all out straight away so it does not keep brewing.</p></div>
 <div class="sustain-card"><h4>POUR-OVER / V60</h4><p>Medium grind, like table salt.<br>15g coffee to 250ml water. Wet the grounds with 50ml, wait 30 seconds for the bloom, then pour the rest in slow circles. Aim to finish between 2:30 and 3:00. This is the method that shows Kenyan acidity best.</p></div>
 <div class="sustain-card"><h4>MOKA POT</h4><p>Fine-medium grind.<br>Fill the basket level and do not tamp. Use hot water in the base. Take it off the heat as soon as it starts to gurgle.</p></div>
-<div class="sustain-card"><h4>ESPRESSO</h4><p>Fine grind.<br>18g in, 36g out, in 25–30 seconds. Kenyan coffee is dense, so start coarser than you think and tighten from there.</p></div>
+<div class="sustain-card"><h4>ESPRESSO</h4><p>Fine grind.<br>Kenyan coffee is dense. If the shot runs fast and sour, grind finer. If it runs slow and bitter, go coarser.</p></div>
 </div>
 </div>
 
 <p class="brew-closing brew-note">Water just off the boil, around 93–96°C. Grind just before you brew if you can. Store the bag sealed, somewhere cool and dark — not the fridge.</p>
-</div></section>
-
-<!-- DELIVERY INFO BAND -->
-<section class="delivery-band" id="delivery"><div class="delivery-inner">
-<h2>Delivery</h2>
-<div class="delivery-item"><strong>Delivery areas:</strong> Nairobi and Kiambu door-to-door. Countrywide to your nearest Pickup Mtaani agent.</div>
-<div class="delivery-item"><strong>Delivery cost:</strong> From KSh 120 to an agent point · KSh 250–350 door-to-door in Nairobi · Free on orders over KSh 2,500</div>
-<div class="delivery-item">Dispatched within 48 hours of your order. Then 24–48 hours in Nairobi &amp; Kiambu, or up to 4 days countrywide to your nearest Pickup Mtaani agent.</div>
 </div></section>
 
 <!-- SUBSCRIPTION SECTION -->
@@ -787,13 +814,13 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
   <div class="sub-card">
     <div class="sub-size">100g</div>
     <p>For one drinker, or for tasting your way through the collection.</p>
-    <div class="sub-price">From KSh 349 / delivery <span><s>KSh 410</s> &middot; 15% off</span></div>
+    <div class="sub-price" data-sub-price="100g">Price on request <span>&middot; 15% off</span></div>
   </div>
   <div class="sub-card featured">
     <div class="sub-badge">Most popular</div>
     <div class="sub-size">250g</div>
     <p>For a household, or a serious daily habit.</p>
-    <div class="sub-price">From KSh 978 / delivery <span><s>KSh 1,150</s> &middot; 15% off</span></div>
+    <div class="sub-price" data-sub-price="250g">Price on request <span>&middot; 15% off</span></div>
   </div>
 </div>
 
@@ -801,10 +828,10 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <div class="sub-actions"><a class="btn gold" href="https://wa.me/254704604260?text=Hi%2C%20I%27d%20like%20to%20start%20an%20Imani%20subscription%20%28please%20tell%20me%20about%20sizes%20and%20pricing%29" target="_blank" rel="noopener">START YOUR SUBSCRIPTION</a></div>
 </div></div></section>
 
-<section class="email-capture" id="subscribe" aria-labelledby="email-heading"><div class="container"><div><h2 id="email-heading">NOT READY FOR A SUBSCRIPTION?</h2><p class="lead">Join our lot alerts and get early access, exclusive pricing on new releases, and updates on our tree-planting programme and community events.</p><form class="email-form" action="https://formspree.io/f/xkkkdqvy" method="POST"><label for="email">Your email address</label><input id="email" name="email" type="email" placeholder="Your email address" autocomplete="email" required><button class="btn gold" type="submit">JOIN LOT ALERTS</button></form><!-- Formspree handles email delivery to getimanicoffee@gmail.com --></div></div></section>
+<section class="email-capture" id="subscribe" aria-labelledby="email-heading"><div class="container"><div><h2 id="email-heading">GET LOT ALERTS</h2><p class="lead">Join our lot alerts and get early access, exclusive pricing on new releases, and updates on our tree-planting programme and community events.</p><form class="email-form" data-form-endpoint method="POST"><label for="email">Your email address</label><input id="email" name="email" type="email" placeholder="Your email address" autocomplete="email" required><button class="btn gold" type="submit">JOIN LOT ALERTS</button></form><p class="form-status" role="status" aria-live="polite" hidden></p><!-- Formspree handles email delivery to the configured contact email. --></div></div></section>
 
 <section class="section" id="story"><div class="container">
-<div class="section-head"><div class="num">04 / Our Story</div><div><h2>Small Roastery. Bigger Mission.</h2>
+<div class="section-head"><div class="num">04 / Our Story</div><div><h2>OUR STORY</h2>
 <p class="lead">Imani is a micro-roastery in Kenya. We exist to create unforgettable experiences in coffee by selecting rare lots and roasting them with care to let their character shine through. This project is the result of many years spent in the coffee industry.</p>
 <p class="lead">We were formed on a simple conviction: that value added at origin, specialty coffee education, and ethical sourcing all create accessibility, sustainability, and awareness of this beautiful experience in a cup.</p>
 <p class="lead">To us, coffee is an expression of time, patience, science, and hard work.</p>
@@ -819,9 +846,9 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 	<div class="section-head"><div class="num">05 / Sustainability</div><div><h2>COFFEE SHOULD LEAVE MORE BEHIND.</h2><p class="lead">We believe a coffee company should create value beyond the cup.</p><div class="sustainability-intro"><p>Kenya exports almost all of its coffee raw. Of roughly 940,000 bags leaving the country this season, about 900,000 go as unroasted green beans, and only 30,000 as roasted coffee. That's about 95% of our exports leaving as a raw commodity, and about 3% leaving as finished coffee.</p><p>Imani exists to change that. We roast at origin, keeping more value where the coffee grows. As Kenya works toward tripling national coffee output to 150,000 metric tonnes by 2028, our work supports a stronger local coffee economy through roasting, training and value addition.</p><p class="sustainability-sources"><span>USDA Foreign Agricultural Service, Kenya Coffee Annual Report 2026/27</span><span aria-hidden="true"> · </span><span>Kenya News Agency, 26 May 2025</span><span aria-hidden="true"> · </span><a href="https://mountkenyatimes.co.ke/coffee-revival-gains-momentum-as-kenya-targets-150000-tonnes-by-2028/" target="_blank" rel="noopener">Mt Kenya Times</a><span aria-hidden="true"> · </span><a href="https://www.the-star.co.ke/news/2026-03-31-kenya-banks-on-new-law-training-and-research-to-revive-her-coffee" target="_blank" rel="noopener">The Star</a><span aria-hidden="true"> · </span><a href="assets/Imani_Sustainability_Action_Plan.pdf" target="_blank" rel="noopener">Full Sustainability Action Plan</a></p></div></div></div>
 
 	<p class="commitments-label">Our three commitments:</p><div class="sustain-grid">
-		<div class="sustain-card"><div class="icon">🤝</div><h4>PEOPLE</h4><b>BUILD KNOWLEDGE.</b><p>One free coffee training seat sponsored every month — open to farmers, producers and the public.</p></div>
-		<div class="sustain-card"><div class="icon">🌱</div><h4>PLANET</h4><b>PLANT WHAT WE ROAST.</b><p>KSh 5 from every Imani bag supports the Imani Tree Programme.</p></div>
-		<div class="sustain-card"><div class="icon">☕</div><h4>VALUE</h4><b>KEEP MORE VALUE AT ORIGIN.</b><p>Fair prices to producers. More coffee value kept in Kenya. A business built for the long term.</p></div>
+		<div class="sustain-card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11 5.5 8.5a2 2 0 0 0-2.8 2.8l5.5 5.5a4 4 0 0 0 2.8 1.2h4a4 4 0 0 0 2.8-1.2l3.5-3.5a2 2 0 0 0-2.8-2.8L16 13"/><path d="m8 11 3 2a2 2 0 0 0 2.5-.3l2-2a2 2 0 0 0-2.8-2.8L11 9.5 9.5 8a3 3 0 0 0-4.2 0L4 9.3"/><path d="m14 7 1-3 3 1-1 3"/></svg></div><h4>PEOPLE</h4><b>BUILD KNOWLEDGE.</b><p>One free coffee training seat sponsored every month — open to farmers, producers and the public.</p></div>
+		<div class="sustain-card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 15c-5 0-8-3-8-8 5 0 8 3 8 8Z"/><path d="M12 12c0-5 3-8 8-8 0 5-3 8-8 8Z"/></svg></div><h4>PLANET</h4><b>PLANT WHAT WE ROAST.</b><p>KSh 5 from every Imani bag supports the Imani Tree Programme.</p></div>
+		<div class="sustain-card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 8.2a3 3 0 0 1-3 2.6H9.2a3 3 0 0 1-3-2.6L5 8Z"/><path d="M5 10H3a2 2 0 0 0 0 4h3"/><path d="M8 5c1 1 1 2 0 3m4-3c1 1 1 2 0 3m4-3c1 1 1 2 0 3"/></svg></div><h4>VALUE</h4><b>KEEP MORE VALUE AT ORIGIN.</b><p>Fair prices to producers. More coffee value kept in Kenya. A business built for the long term.</p></div>
 	</div>
 
 	<div class="sustain-tag">Small actions. Compounding impact.</div>
@@ -832,7 +859,7 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <!-- END SUSTAINABILITY SECTION -->
 
 <section class="section academy" id="academy" aria-labelledby="academy-heading"><div class="container">
-	<div class="section-head"><div class="num">05 / Academy</div><div><div class="eyebrow">COMING SOON</div><h2 id="academy-heading">Imani Academy</h2><p class="lead">Coffee knowledge, shared. Barista foundations, home brewing, cupping and roasting — taught at origin, in Kiambu. Open to café staff, home brewers, and the producers who grow what we roast.</p>
+	<div class="section-head"><div class="num">05 / Academy</div><div><div class="eyebrow">COMING SOON</div><h2 id="academy-heading">IMANI ACADEMY</h2><p class="lead">Coffee knowledge, shared. Barista foundations, home brewing, cupping and roasting — taught at origin, in Kiambu. Open to café staff, home brewers, and the producers who grow what we roast.</p>
 	<ul class="academy-list">
 		<li>Barista Foundations</li>
 		<li>Home Brewing &amp; Cupping</li>
@@ -840,7 +867,8 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 	</ul>
 	<div class="academy-capture">
 		<p class="academy-label">Be first to know when enrolment opens.</p>
-		<form class="email-form" action="https://formspree.io/f/xkkkdqvy" method="POST"><label for="academy-email">Your email address</label><input id="academy-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required><button class="btn gold" type="submit">Notify me</button></form>
+		<form class="email-form" data-form-endpoint method="POST"><label for="academy-email">Your email address</label><input id="academy-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required><button class="btn gold" type="submit">Notify me</button></form>
+		<p class="form-status" role="status" aria-live="polite" hidden></p>
 	</div></div></div>
 </div></section>
 
@@ -857,17 +885,17 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 </div>
 <div class="wholesale-pricing">
 	<div><span>Minimum order</span><b>5kg</b></div>
-	<div><span>Wholesale from</span><b>KSh 3,500 per kg</b></div>
+	<div><span>Wholesale from</span><b data-wholesale-price>Contact us for current rates</b></div>
 	<div><span>Delivery</span><b>Bi-weekly within Nairobi and Kiambu</b></div>
 	<div><span>Lead time</span><b>Roasted to order, dispatched within 48 hours</b></div>
 </div>
 <p class="wholesale-pricing-note">Pricing reviewed quarterly. Contact us for current rates on your volume.</p>
 <div class="actions"><a class="btn gold" href="https://wa.me/254704604260?text=Hi%2C%20I%20run%20a%20cafe%20and%20I%27d%20like%20to%20talk%20about%20wholesale%20coffee.%20My%20rough%20monthly%20volume%20is%3A" target="_blank" rel="noopener">START A CONVERSATION</a><a class="secondary-link" href="https://wa.me/254704604260?text=Hi%2C%20I%27d%20like%20to%20book%20a%20cupping%20session." target="_blank" rel="noopener">BOOK A CUPPING</a></div></div></div></div></section>
 
-<section class="quote" id="journal"><div class="container"><div class="quote-mark" aria-hidden="true">"</div><div class="quote-text">Character. Trust. Transparency. Consistency.</div></div></section>
+<section class="quote" id="journal"><div class="container"><div class="quote-text">Character. Trust. Transparency. Consistency.</div></div></section>
 
 <section class="section" id="faq"><div class="container">
-<div class="section-head"><div class="num">07 / FAQ</div><div><h2>Frequently Asked Questions</h2><p class="lead">Everything you need to know about specialty and Kenyan coffee.</p></div></div>
+<div class="section-head"><div class="num">07 / FAQ</div><div><h2>FREQUENTLY ASKED QUESTIONS</h2><p class="lead">Everything you need to know about specialty and Kenyan coffee.</p></div></div>
 <div class="faq">
 <div class="faq-group"><h3>Specialty Coffee</h3>
 <div class="faq-item"><h4 class="faq-question"><button id="faq-question-01" type="button" aria-expanded="false" aria-controls="faq-answer-01">What makes coffee "specialty"?</button></h4><div class="faq-answer" id="faq-answer-01" role="region" aria-labelledby="faq-question-01" hidden><p>Specialty coffee scores 80+ on the SCA's 100-point scale, graded by trained cuppers. It's also traceable: you know the country, region, and often the farm or cooperative it came from.</p></div></div>
@@ -894,12 +922,12 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <div class="faq-item"><h4 class="faq-question"><button id="faq-question-18" type="button" aria-expanded="false" aria-controls="faq-answer-18">When do you roast and ship?</button></h4><div class="faq-answer" id="faq-answer-18" role="region" aria-labelledby="faq-question-18" hidden><p>Every order is roasted to order and dispatched within 48 hours. Delivery then takes 24–48 hours in Nairobi and Kiambu, or up to 4 days countrywide via Pickup Mtaani. Delivery is free on orders over KSh 2,500.</p></div></div>
 <div class="faq-item"><h4 class="faq-question"><button id="faq-question-19" type="button" aria-expanded="false" aria-controls="faq-answer-19">How do I order and pay?</button></h4><div class="faq-answer" id="faq-answer-19" role="region" aria-labelledby="faq-question-19" hidden><p>Add your coffee to the cart, choose your delivery area and send the order to us on WhatsApp. We confirm with M-Pesa payment details and your roast date.</p></div></div>
 <div class="faq-item"><h4 class="faq-question"><button id="faq-question-20" type="button" aria-expanded="false" aria-controls="faq-answer-20">How does the subscription work?</button></h4><div class="faq-answer" id="faq-answer-20" role="region" aria-labelledby="faq-question-20" hidden><p>Choose 100g or 250g. We roast and deliver every two weeks, you save 15% on every bag, and you can pause or cancel anytime.</p></div></div>
-<div class="faq-item"><h4 class="faq-question"><button id="faq-question-21" type="button" aria-expanded="false" aria-controls="faq-answer-21">Do you offer wholesale?</button></h4><div class="faq-answer" id="faq-answer-21" role="region" aria-labelledby="faq-question-21" hidden><p>Yes. Minimum order is 5kg, from KSh 3,500 per kg, delivered bi-weekly in Nairobi and Kiambu. Message us on WhatsApp to start a conversation or book a cupping.</p></div></div>
+<div class="faq-item"><h4 class="faq-question"><button id="faq-question-21" type="button" aria-expanded="false" aria-controls="faq-answer-21">Do you offer wholesale?</button></h4><div class="faq-answer" id="faq-answer-21" role="region" aria-labelledby="faq-question-21" hidden><p>Yes. Minimum order is 5kg. Contact us for current wholesale rates, delivered bi-weekly in Nairobi and Kiambu. Message us on WhatsApp to start a conversation or book a cupping.</p></div></div>
 </div>
 </div>
 </div></section>
 
-<footer id="contact"><div class="container"><div class="foot"><div><strong>IMANI COFFEE CO.</strong><br><span>Roasted at origin. Rooted in character. · Kikuyu, Kiambu County, Kenya</span></div><div class="footer-contact"><div class="footer-socials"><a href="https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=" target="_blank" rel="noopener" aria-label="Follow Imani Coffee on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg><span>Instagram</span></a><a href="https://x.com/Get_ImaniCoffee" target="_blank" rel="noopener" aria-label="Follow Imani Coffee on X"><svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.4L6.47 22H3.36l7.24-8.28L2.8 2h6.4l4.42 5.84L18.9 2Zm-1.1 17.8h1.73L8.3 4.07H6.44L17.8 19.8Z"></path></svg><span>X</span></a><button class="footer-trace" id="trace-coffee" type="button">Trace your coffee</button></div><a class="footer-email" href="mailto:getimanicoffee@gmail.com">getimanicoffee@gmail.com</a><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="delivery-returns.html">Delivery &amp; Returns</a></div><span>© 2026 Imani Coffee Co.</span></div></div><a class="btn footer-map" href="https://maps.app.goo.gl/su8LmxajzhurJp2w7?g_st=ac" target="_blank" rel="noopener">Find us on map</a></div></footer>
+<footer id="contact"><div class="container"><div class="foot"><div><strong>IMANI COFFEE CO.</strong><br><span>Roasted at origin. Rooted in character. · Kikuyu, Kiambu County, Kenya</span><p class="registered-name">Imani Kikuyu Specialty Coffee &amp; Roastery</p><div class="footer-coming-soon"><strong>Coming soon</strong><span>Merchandise · Imani Academy</span></div></div><div class="footer-contact"><div class="footer-socials"><a href="https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=" target="_blank" rel="noopener" aria-label="Follow Imani Coffee on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg><span>Instagram</span></a><a href="https://x.com/Get_ImaniCoffee" target="_blank" rel="noopener" aria-label="Follow Imani Coffee on X"><svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.4L6.47 22H3.36l7.24-8.28L2.8 2h6.4l4.42 5.84L18.9 2Zm-1.1 17.8h1.73L8.3 4.07H6.44L17.8 19.8Z"></path></svg><span>X</span></a><button class="footer-trace" id="trace-coffee" type="button">Trace your coffee</button></div><a class="footer-email" data-contact-email>Contact us by email</a><div class="footer-legal"><a href="privacy/index.html">Privacy</a><a href="delivery-returns.html">Delivery &amp; Returns</a></div><span>© 2026 Imani Coffee Co.</span></div></div><a class="btn footer-map" href="https://maps.app.goo.gl/su8LmxajzhurJp2w7?g_st=ac" target="_blank" rel="noopener">Find us on map</a></div></footer>
 
 <div class="cart-backdrop" id="cart-backdrop"></div><aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true"><div class="cart-head"><h2>Your Cart</h2><button class="cart-close" type="button" aria-label="Close cart">&times;</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">KSh 0</strong></div><p class="cart-note">Taxes and delivery calculated at checkout.</p><button id="checkout-btn" type="button" class="btn primary" style="width:100%;justify-content:center;margin-top:10px">Checkout</button></div></aside>
 
@@ -1151,6 +1179,64 @@ renderCart();
       }
     });
   });
+})();
+</script>
+<script>
+(()=>{
+  const formatConfiguredPrice=value=>`KSh ${Number(value).toLocaleString('en-KE')}`;
+  const wholesalePrice=document.querySelector('[data-wholesale-price]');
+  if(wholesalePrice){
+    wholesalePrice.textContent=Number.isFinite(Number(WHOLESALE_PRICE))&&Number(WHOLESALE_PRICE)>0
+      ?`${formatConfiguredPrice(WHOLESALE_PRICE)} per kg`
+      :'Contact us for current rates';
+  }
+  document.querySelectorAll('[data-sub-price]').forEach(element=>{
+    const price=element.dataset.subPrice==='100g'?SUB_100G_PRICE:SUB_250G_PRICE;
+    element.innerHTML=Number.isFinite(Number(price))&&Number(price)>0
+      ?`From ${formatConfiguredPrice(price)} / delivery <span>· 15% off</span>`
+      :'Price on request <span>· 15% off</span>';
+  });
+  document.querySelectorAll('[data-contact-email]').forEach(link=>{
+    link.href=`mailto:${CONTACT_EMAIL}`;
+    link.textContent=CONTACT_EMAIL;
+  });
+  if(LAUNCH_NOTE.trim()){
+    const banner=document.createElement('div');
+    banner.className='launch-note';
+    banner.textContent=LAUNCH_NOTE.trim();
+    const header=document.querySelector('header');
+    document.body.insertBefore(banner,header);
+    const updateBannerHeight=()=>document.documentElement.style.setProperty('--launch-note-height',`${banner.offsetHeight}px`);
+    document.body.classList.add('has-launch-note');
+    updateBannerHeight();
+    window.addEventListener('resize',updateBannerHeight,{passive:true});
+  }
+  document.querySelectorAll('[data-form-endpoint]').forEach(form=>{
+    const status=form.nextElementSibling;
+    if(FORM_ENDPOINT.trim()){
+      form.action=FORM_ENDPOINT;
+      return;
+    }
+    if(status&&status.classList.contains('form-status')){
+      status.hidden=false;
+      status.textContent='Sign-up is unavailable because no form endpoint is configured.';
+    }
+    form.removeAttribute('action');
+    const submitButton=form.querySelector('button[type="submit"]');
+    if(submitButton)submitButton.disabled=true;
+    form.addEventListener('submit',event=>{
+      event.preventDefault();
+      if(status&&status.classList.contains('form-status')){
+        status.hidden=false;
+        status.textContent='Sign-up is unavailable because no form endpoint is configured.';
+      }
+    });
+  });
+  if(!DIRECT_TRADE){
+    document.querySelectorAll('meta[name="description"],meta[property="og:description"],meta[name="twitter:description"]').forEach(meta=>{
+      meta.content=meta.content.replace(/direct trade/gi,'').replace(/\s{2,}/g,' ').trim();
+    });
+  }
 })();
 </script>
 <a class="wa-float" href="https://wa.me/254704604260?text=Hi%20Imani%2C%20I%27d%20like%20to%20order%20coffee" target="_blank" rel="noopener" aria-label="Order on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>

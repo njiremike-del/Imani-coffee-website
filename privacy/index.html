@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy | Imani Coffee Co.</title>
+<meta name="description" content="How Imani Coffee Co. uses information submitted through orders and sign-up forms.">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<script src="../assets/site-config.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+:root{--deep:#1a1208;--green:#0f3b2a;--cream:#f9f5ee;--ink:#1a1208;--muted:#5a4a3a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.7 "DM Sans",sans-serif}
+main{width:min(760px,calc(100% - 40px));margin:0 auto;padding:72px 0}
+h1,h2{font-family:"Playfair Display",serif;line-height:1.15}
+h1{font-size:clamp(38px,7vw,58px);margin:0 0 12px}
+h2{font-size:24px;margin:32px 0 8px}
+p{margin:0 0 12px;color:var(--muted)}
+a{color:var(--green);text-underline-offset:3px}
+.back{display:inline-flex;min-height:44px;align-items:center;margin-bottom:32px}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../index.html">← Back to Imani Coffee Co.</a>
+<h1>Privacy</h1>
+<p>This notice explains what information Imani Coffee Co. receives when you place an order or sign up for updates.</p>
+
+<h2>Information we collect</h2>
+<p>We receive the details you choose to provide, which may include your name, phone number, email address, delivery area, and order details. Lot-alert and Academy sign-up forms collect the email address you submit.</p>
+
+<h2>How we use it</h2>
+<p>We use order details to confirm, prepare, deliver, and support your order. We use sign-up details to send the updates you requested. You can ask us to stop sending optional updates at any time.</p>
+
+<h2>Where information goes</h2>
+<p>Orders and customer conversations may be handled through WhatsApp. Email sign-up forms are processed by Formspree, our form provider, and delivered to Imani Coffee Co. These providers handle information under their own privacy terms.</p>
+
+<h2>How long we keep it</h2>
+<p>We keep order information only as long as needed to fulfill and support the order and meet applicable record-keeping obligations. We keep sign-up information until you unsubscribe or ask us to remove it, unless we need to retain it for a legal reason.</p>
+
+<h2>Contact</h2>
+<p>For a privacy question or a request about your information, email <a data-contact-email>contact address</a>.</p>
+</main>
+<script>
+document.querySelectorAll('[data-contact-email]').forEach(link=>{
+  link.href=`mailto:${CONTACT_EMAIL}`;
+  link.textContent=CONTACT_EMAIL;
+});
+</script>
+</body>
+</html>

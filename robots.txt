@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://njiremike-del.github.io/Imani-coffee-website/sitemap.xml
