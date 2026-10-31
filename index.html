@@ -323,12 +323,82 @@ h1{font-size:clamp(58px,7vw,96px);line-height:.95;margin-bottom:26px}
 .story-side{gap:28px}
 .story-callout{margin:36px 0 0;padding:28px 0}
 .story-stat{color:var(--green)}
-.coffee-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.coffee{border-color:#e1ddd3;transition:transform .2s ease,box-shadow .2s ease}
-.coffee:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(27,33,28,.1)}
-.coffee-photo{height:235px}
-.coffee-body{padding:22px 20px 20px}
-.coffee h3{font-size:27px}
+.coffee-section .coffee-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-auto-rows:1fr;align-items:stretch;gap:20px}
+.coffee-section .coffee{grid-column:span 2;display:flex;flex-direction:column;min-width:0;height:100%;overflow:hidden;border-color:#e1ddd3;transition:transform .2s ease,box-shadow .2s ease}
+.coffee-section .coffee:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(27,33,28,.12)}
+.coffee-section .coffee:nth-child(4){grid-column:2 / span 2}
+.coffee-section .coffee:nth-child(5){grid-column:4 / span 2}
+.coffee-section .product-media{position:relative;width:100%;height:auto!important;aspect-ratio:4/5;overflow:hidden;border-radius:8px 8px 0 0;background:var(--cream)}
+.coffee-section .product-label-layer,.coffee-section .product-photo-layer{position:absolute;inset:0}
+.coffee-section .product-photo-layer{z-index:1;opacity:1}
+.coffee-section .product-label-layer{z-index:2;opacity:0;transform:scale(.96);pointer-events:none;box-shadow:none;transition:opacity 280ms cubic-bezier(.2,.7,.2,1),transform 280ms cubic-bezier(.2,.7,.2,1)}
+.coffee-section .product-photo-layer img,.coffee-section .kirinyaga-label-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.coffee-section .product-photo-layer img{filter:brightness(1);transition:filter 280ms cubic-bezier(.2,.7,.2,1)}
+.coffee-section .product-card.is-label-visible .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px rgba(0,0,0,.28)}
+.coffee-section .product-card.is-label-visible .product-photo-layer img{filter:brightness(.7)}
+.coffee-section .coffee-badge{position:absolute;top:12px;left:12px;z-index:10}
+.coffee-section .product-view-toggle{display:none}
+.coffee-section .product-media-caption{position:absolute;right:auto;bottom:10px;left:10px;z-index:9;margin:0;padding:5px 8px;border-radius:4px;background:rgba(15,59,42,.9);color:#f5efdc;font-size:11px;opacity:1;transition:opacity .25s ease}
+.coffee-section.coffee-caption-dismissed .product-media-caption{opacity:0}
+.coffee-section .imani-label{position:relative;display:flex;width:100%;height:100%;aspect-ratio:777/958;flex-direction:column;align-items:center;justify-content:space-between;overflow:hidden;padding:5%;border-radius:8px;background:#0f3b2a;color:#f5efdc;text-align:center;container-type:inline-size}
+.coffee-section .imani-label::before{position:absolute;inset:3%;border:1px solid #f5efdc;border-radius:6px;content:"";pointer-events:none}
+.coffee-section .imani-label-logo{width:37%;height:16%;object-fit:contain}
+.coffee-section .imani-label-brand{margin-top:-2%;font-size:clamp(11px,4cqi,15px);letter-spacing:.04em}
+.coffee-section .imani-label-country{margin-top:1%;font-family:"Playfair Display",serif;font-size:clamp(11px,5cqi,18px);letter-spacing:.18em}
+.coffee-section .imani-label-name{max-width:90%;margin:1% 0;padding:4% 8%;border-radius:999px;background:#f5efdc;color:#0f3b2a;font-family:"Playfair Display",serif;font-size:clamp(11px,5cqi,19px);line-height:1.15}
+.coffee-section .imani-label-specs{display:grid;width:88%;gap:2%;margin:0;text-align:left}
+.coffee-section .imani-label-spec{display:flex;justify-content:space-between;gap:4%;padding:2% 0;border-bottom:1px solid rgba(245,239,220,.45);font-size:clamp(11px,3cqi,13px);line-height:1.2}
+.coffee-section .imani-label-spec dt{font-weight:600}
+.coffee-section .imani-label-spec dd{margin:0;text-align:right}
+.coffee-section .imani-label-notes{max-width:92%;margin:2% 0;padding:3% 6%;border:1px solid #f5efdc;border-radius:999px;color:#f5efdc;font-size:clamp(11px,3cqi,13px);font-weight:600;line-height:1.2}
+.coffee-section .imani-label-weight{margin-bottom:1%;font-size:clamp(11px,3cqi,13px);letter-spacing:.12em}
+.coffee-section .coffee-body{display:flex;flex:1;flex-direction:column;padding:18px 20px 20px}
+.coffee-section .origin{margin-bottom:6px;color:#5a4a3a;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.coffee-section .coffee h3{margin:0 0 10px;font-family:"Playfair Display",serif;font-size:27px;line-height:1.15;overflow-wrap:anywhere}
+.coffee-section .coffee-body>p:not(.roast-info){margin:0 0 10px;color:#42372d;font-size:14px;line-height:1.5}
+.coffee-section .coffee-body .roast-info{margin:0 0 14px;color:#5a4a3a;font-size:12px;line-height:1.45}
+.coffee-section .coffee-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px}
+.coffee-section .coffee-bottom .plus{flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px}
+.coffee-section .drip-bag-subsection{margin-top:58px}
+.coffee-section .drip-bag-header{margin-bottom:28px}
+.coffee-section .drip-bag-eyebrow{margin:0 0 12px;color:#687269;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.coffee-section .drip-bag-header h2{margin-bottom:14px}
+.coffee-section .drip-bag-header .lead{margin:0}
+.coffee-section .drip-bag-grid .drip-bag-card{grid-column:3 / span 2}
+.coffee-section .drip-bag-card.drip-label-only .product-label-layer{z-index:2;opacity:1;transform:none;pointer-events:none;box-shadow:none;transition:none}
+.coffee-section .drip-bag-card .product-label-layer picture,.coffee-section .drip-bag-card .product-label-layer img{display:block;width:100%;height:100%}
+.coffee-section .drip-bag-card .product-label-layer img{object-fit:cover;filter:none}
+.coffee-section .drip-bag-card.drip-label-only .product-view-toggle,.coffee-section .drip-bag-card.drip-label-only .product-media-caption{display:none!important}
+.coffee-section .drip-bag-card .drip-bag-price{color:#42372d}
+.coffee-section .drip-bag-card .drip-bag-whatsapp{display:inline-flex;min-width:44px;min-height:44px;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--green);border-radius:6px;background:var(--green);color:#fff;text-align:center;text-decoration:none}
+.coffee-section .drip-bag-card .drip-bag-whatsapp:hover{background:#173327}
+@media(max-width:950px){
+  .coffee-section .coffee-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .coffee-section .coffee:nth-child(4){grid-column:span 2}
+  .coffee-section .coffee:nth-child(5){grid-column:2 / span 2}
+  .coffee-section .drip-bag-grid .drip-bag-card{grid-column:2 / span 2}
+}
+@media(max-width:560px){
+  .coffee-section .coffee-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px}
+  .coffee-section .coffee,.coffee-section .coffee:nth-child(4),.coffee-section .coffee:nth-child(5){grid-column:span 2}
+  .coffee-section .coffee-body{padding:18px}
+  .coffee-section .drip-bag-grid .drip-bag-card{grid-column:span 2}
+}
+@media(hover:hover){
+  .coffee-section .product-view-toggle{display:none!important}
+  .coffee-section .product-card:hover .product-label-layer,.coffee-section .product-card:focus-within .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px rgba(0,0,0,.28)}
+  .coffee-section .product-card:hover .product-photo-layer img,.coffee-section .product-card:focus-within .product-photo-layer img{filter:brightness(.7)}
+}
+@media(hover:none){
+  .coffee-section .product-view-toggle{position:absolute;right:10px;bottom:10px;z-index:11;display:grid;min-width:44px;min-height:44px;place-items:center;padding:8px;border:1px solid #f5efdc;border-radius:50%;background:#0f3b2a;color:#f5efdc;cursor:pointer}
+  .coffee-section .product-view-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .coffee-section .product-media-caption{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .coffee-section .product-label-layer{transform:none;transition:opacity 0s}
+  .coffee-section .product-photo-layer img,.coffee-section .product-media-caption{transition:none}
+}
+.coffee-section .drip-bag-card.drip-label-only:hover .product-label-layer,.coffee-section .drip-bag-card.drip-label-only:focus-within .product-label-layer{opacity:1;transform:none;box-shadow:none}
 .email-capture{padding:88px 0;background:var(--cream)}
 .email-capture h2{max-width:760px}
 .email-form{margin-top:30px}
@@ -404,7 +474,7 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 {"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","name":"Imani Coffee Co.","description":"Specialty coffee roasted at origin in Kiambu, Kenya. Single-origin lots, roasted to order.","url":"https://njiremike-del.github.io/Imani-coffee-website/","email":"getimanicoffee@gmail.com","image":"https://i.postimg.cc/9DgdBRWh/Whats-App-Image-2026-08-28-at-13-42-24.jpg","address":{"@type":"PostalAddress","addressLocality":"Kikuyu","addressRegion":"Kiambu County","addressCountry":"KE"},"sameAs":["https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=","https://x.com/Get_ImaniCoffee"]},{"@type":"ItemList","name":"Imani Coffee Co. Coffees","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Kenya AA","description":"Kenya · Kirinyaga. Blackcurrant · Citrus · Brown Sugar. Washed · SL28 · SL34.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1250"}}},{"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Kenya AB","description":"Kenya · Nyeri. Raisin · Caramel · Orange. Washed · SL28 · Ruiru 11.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1150"}}},{"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Meru","description":"Kenya · Meru. Blackcurrant · Citrus · Brown Sugar. Washed · SL28 · SL34.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1250"}}},{"@type":"ListItem","position":4,"item":{"@type":"Product","name":"Meru Peaberry","description":"Kenya · Meru. Raisin · Caramel · Orange. Washed · Peaberry.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1350"}}},{"@type":"ListItem","position":5,"item":{"@type":"Product","name":"Nyeri AA Fruit Infused","description":"Limited edition. Kenya · Nyeri. Berry · Tropical Fruit · Honey. Fruit Infused · AA.","offers":{"@type":"Offer","priceCurrency":"KES","price":"1450"}}}]}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes coffee \"specialty\"?","acceptedAnswer":{"@type":"Answer","text":"Specialty coffee scores 80+ on the SCA's 100-point scale, graded by trained cuppers. It's also traceable: you know the country, region, and often the farm or cooperative it came from."}},{"@type":"Question","name":"How is specialty different from supermarket coffee?","acceptedAnswer":{"@type":"Answer","text":"Supermarket coffee is usually blended for consistency and roasted dark to hide defects. Specialty is sourced for flavour, roasted to show it, and sold with its origin and roast date."}},{"@type":"Question","name":"Why is specialty coffee more expensive?","acceptedAnswer":{"@type":"Answer","text":"It's hand-picked at peak ripeness, processed carefully, and sold at a quality premium, so the farmer earns more per kilo. You're paying for fewer defects and a cup that tastes like where it grew."}},{"@type":"Question","name":"How fresh should my coffee be?","acceptedAnswer":{"@type":"Answer","text":"Our coffee is roasted to order and tastes best 7-21 days after the roast date. It stays good for about 4 weeks. Check the roast date on your bag."}},{"@type":"Question","name":"Should I buy whole bean or ground?","acceptedAnswer":{"@type":"Answer","text":"Whole bean. Ground coffee loses aroma fast. A decent burr grinder is the best upgrade you can make."}},{"@type":"Question","name":"How should I store my coffee?","acceptedAnswer":{"@type":"Answer","text":"Keep it in an airtight container, cool and dark. Avoid the fridge or freezer for daily use, because moisture and odours get in."}},{"@type":"Question","name":"What's the right coffee-to-water ratio?","acceptedAnswer":{"@type":"Answer","text":"Start at 1 part coffee to 16 parts water (for example, 18g coffee to 288g water) with water at 93–96°C. Adjust to taste."}},{"@type":"Question","name":"Why is Kenyan coffee considered among the best in the world?","acceptedAnswer":{"@type":"Answer","text":"Altitude, volcanic red soil, and rigorous processing. Most is grown at roughly 1,500-2,100m, which slows cherry development and builds complexity. Combined with prized varieties and careful washing, this gives Kenyan coffee its signature clarity and sweetness."}},{"@type":"Question","name":"What does Kenyan coffee taste like?","acceptedAnswer":{"@type":"Answer","text":"Bright, juicy acidity with notes like blackcurrant, grapefruit, and a savoury tomato-like quality, plus a sweet, syrupy body. It's vivid, not bitter."}},{"@type":"Question","name":"What are SL28 and SL34?","acceptedAnswer":{"@type":"Answer","text":"Varieties developed by Scott Laboratories in the 1930s, prized for cup quality. Other Kenyan varieties include Ruiru 11 and Batian, which are bred for disease resistance."}},{"@type":"Question","name":"What do AA, AB, and PB mean? Is AA the best?","acceptedAnswer":{"@type":"Answer","text":"No. Grades measure bean size, not quality. AA is the largest screen size, AB is slightly smaller, and PB is peaberry (a single round bean instead of two). A well-grown AB can outscore an AA."}},{"@type":"Question","name":"How is Kenyan coffee processed?","acceptedAnswer":{"@type":"Answer","text":"Mostly fully washed. Cherries are pulped, fermented, washed, soaked, and dried on raised beds. This produces the clean, bright cup Kenya is known for."}},{"@type":"Question","name":"Where in Kenya is coffee grown?","acceptedAnswer":{"@type":"Answer","text":"Key regions include Nyeri, Kirinyaga, Murang'a, Kiambu, and Embu, around Mt Kenya and the Aberdares. Smaller pockets grow around Kisii and Bungoma."}},{"@type":"Question","name":"When is the Kenyan harvest?","acceptedAnswer":{"@type":"Answer","text":"The main crop is roughly October-December, with a smaller \"fly crop\" around mid-year. Timing varies by region."}},{"@type":"Question","name":"How is Kenyan coffee sold?","acceptedAnswer":{"@type":"Answer","text":"Largely through the Nairobi Coffee Exchange auction, plus direct and cooperative sales. This is why top lots are so competitive, and why traceability matters."}},{"@type":"Question","name":"What brew method suits Kenyan coffee best?","acceptedAnswer":{"@type":"Answer","text":"Filter methods (V60, Chemex, AeroPress) show off its acidity and clarity. It also makes a fruit-forward espresso, though it can taste sharp if under-extracted."}},{"@type":"Question","name":"Where does Imani's coffee come from?","acceptedAnswer":{"@type":"Answer","text":"Our current lots come from Kirinyaga, Nyeri and Meru. Each coffee lists its region, grade, variety and processing. Use the trace number on your bag and we will reply on WhatsApp with the farm, lot and roast date."}},{"@type":"Question","name":"When do you roast and ship?","acceptedAnswer":{"@type":"Answer","text":"Every order is roasted to order and dispatched within 48 hours. Delivery then takes 24–48 hours in Nairobi and Kiambu, or up to 4 days countrywide via Pickup Mtaani. Delivery is free on orders over KSh 2,500."}},{"@type":"Question","name":"How do I order and pay?","acceptedAnswer":{"@type":"Answer","text":"Add your coffee to the cart, choose your delivery area and send the order to us on WhatsApp. We confirm with M-Pesa payment details and your roast date."}},{"@type":"Question","name":"How does the subscription work?","acceptedAnswer":{"@type":"Answer","text":"Choose 100g or 250g. We roast and deliver every two weeks, you save 15% on every bag, and you can pause or cancel anytime."}},{"@type":"Question","name":"Do you offer wholesale?","acceptedAnswer":{"@type":"Answer","text":"Yes. Minimum order is 5kg, from KSh 3,500 per kg, delivered bi-weekly in Nairobi and Kiambu. Message us on WhatsApp to start a conversation or book a cupping."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes coffee \"specialty\"?","acceptedAnswer":{"@type":"Answer","text":"Specialty coffee scores 80+ on the SCA's 100-point scale, graded by trained cuppers. It's also traceable: you know the country, region, and often the farm or cooperative it came from."}},{"@type":"Question","name":"How is specialty different from supermarket coffee?","acceptedAnswer":{"@type":"Answer","text":"Supermarket coffee is usually blended for consistency and roasted dark to hide defects. Specialty is sourced for flavour, roasted to show it, and sold with its origin and roast date."}},{"@type":"Question","name":"Why is specialty coffee more expensive?","acceptedAnswer":{"@type":"Answer","text":"It's hand-picked at peak ripeness, processed carefully, and sold at a quality premium, so the farmer earns more per kilo. You're paying for fewer defects and a cup that tastes like where it grew."}},{"@type":"Question","name":"How fresh should my coffee be?","acceptedAnswer":{"@type":"Answer","text":"Our coffee is roasted to order and tastes best 7-21 days after the roast date. It stays good for about 4 weeks. Check the roast date on your bag."}},{"@type":"Question","name":"Should I buy whole bean or ground?","acceptedAnswer":{"@type":"Answer","text":"Whole bean. Ground coffee loses aroma fast. A decent burr grinder is the best upgrade you can make."}},{"@type":"Question","name":"How should I store my coffee?","acceptedAnswer":{"@type":"Answer","text":"Keep it in an airtight container, cool and dark. Avoid the fridge or freezer for daily use, because moisture and odours get in."}},{"@type":"Question","name":"What's the right coffee-to-water ratio?","acceptedAnswer":{"@type":"Answer","text":"Start at 1 part coffee to 16 parts water (for example, 18g coffee to 288g water) with water at 93–96°C. Adjust to taste."}},{"@type":"Question","name":"Why is Kenyan coffee considered among the best in the world?","acceptedAnswer":{"@type":"Answer","text":"Altitude, volcanic red soil, and rigorous processing. Most is grown at roughly 1,500-2,100m, which slows cherry development and builds complexity. Combined with prized varieties and careful washing, this gives Kenyan coffee its signature clarity and sweetness."}},{"@type":"Question","name":"What does Kenyan coffee taste like?","acceptedAnswer":{"@type":"Answer","text":"Bright, juicy acidity with notes like blackcurrant, grapefruit, and a savoury tomato-like quality, plus a sweet, syrupy body. It's vivid, not bitter."}},{"@type":"Question","name":"What are SL28 and SL34?","acceptedAnswer":{"@type":"Answer","text":"Varieties developed by Scott Laboratories in the 1930s, prized for cup quality. Other Kenyan varieties include Ruiru 11 and Batian, which are bred for disease resistance."}},{"@type":"Question","name":"What do AA, AB, and PB mean? Is AA the best?","acceptedAnswer":{"@type":"Answer","text":"No. Grades measure bean size, not quality. AA is the largest screen size, AB is slightly smaller, and PB is peaberry (a single round bean instead of two). A well-grown AB can outscore an AA."}},{"@type":"Question","name":"How is Kenyan coffee processed?","acceptedAnswer":{"@type":"Answer","text":"Mostly fully washed. Cherries are pulped, fermented, washed, soaked, and dried on raised beds. This produces the clean, bright cup Kenya is known for."}},{"@type":"Question","name":"Where in Kenya is coffee grown?","acceptedAnswer":{"@type":"Answer","text":"Key regions include Nyeri, Kirinyaga, Murang'a, Kiambu, and Embu, around Mt Kenya and the Aberdares. Smaller pockets grow around Kisii and Bungoma."}},{"@type":"Question","name":"When is the Kenyan harvest?","acceptedAnswer":{"@type":"Answer","text":"The main crop is roughly October-December, with a smaller \"fly crop\" around mid-year. Timing varies by region."}},{"@type":"Question","name":"How is Kenyan coffee sold?","acceptedAnswer":{"@type":"Answer","text":"Largely through the Nairobi Coffee Exchange auction, plus direct and cooperative sales. This is why top lots are so competitive, and why traceability matters."}},{"@type":"Question","name":"What brew method suits Kenyan coffee best?","acceptedAnswer":{"@type":"Answer","text":"Filter methods (V60, Chemex, AeroPress) show off its acidity and clarity. It also makes a fruit-forward espresso, though it can taste sharp if under-extracted."}},{"@type":"Question","name":"Where does Imani's coffee come from?","acceptedAnswer":{"@type":"Answer","text":"Our current lots come from Kirinyaga, Nyeri and Meru. Each coffee lists its region, grade, variety and processing. Use the trace number on your bag and we will reply on WhatsApp with the farm, lot and roast date."}},{"@type":"Question","name":"When do you roast and ship?","acceptedAnswer":{"@type":"Answer","text":"Every order is roasted to order and dispatched within 48 hours. Delivery then takes 24–48 hours in Nairobi and Kiambu, or up to 4 days countrywide via Pickup Mtaani. Delivery is free on orders over KSh 2,500."}},{"@type":"Question","name":"How do I order and pay?","acceptedAnswer":{"@type":"Answer","text":"Add your coffee to the cart, choose your delivery area and send the order to us on WhatsApp. We confirm with M-Pesa payment details and your roast date."}},{"@type":"Question","name":"How does the subscription work?","acceptedAnswer":{"@type":"Answer","text":"Choose 100g or 250g. We roast and deliver every two weeks, you save 15% on every bag, and you can pause or cancel anytime."}},{"@type":"Question","name":"Do you offer wholesale?","acceptedAnswer":{"@type":"Answer","text":"Yes. Minimum order is 5kg, from KSh 2,200 per kg, delivered bi-weekly in Nairobi and Kiambu. Message us on WhatsApp to start a conversation or book a cupping."}}]}
 </script>
 </head>
 <body>
@@ -417,7 +487,7 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
   <a href="#story" class="nav-item">Our Story</a>
   <a href="#wholesale" class="nav-item">Wholesale</a>
   <a href="#faq" class="nav-item">FAQ</a>
-  <a href="#contact" class="nav-item">Contact</a>
+  <a href="https://wa.me/254704604260?text=Hi%2C%20I%27d%20like%20to%20contact%20Imani%20Coffee" class="nav-item" target="_blank" rel="noopener">Contact</a>
 </div>
 <div class="navright"><button class="cart-toggle" type="button" aria-controls="cart-drawer" aria-expanded="false" aria-label="Open shopping cart">Cart (<span id="cart-count">0</span>)</button><button class="menu-toggle" id="menu-toggle" type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">☰</button></div>
 </nav></div></header>
@@ -429,7 +499,7 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
   <a href="#story">Our Story</a>
   <a href="#wholesale">Wholesale</a>
   <a href="#faq">FAQ</a>
-  <a href="#contact">Contact</a>
+  <a href="https://wa.me/254704604260?text=Hi%2C%20I%27d%20like%20to%20contact%20Imani%20Coffee" target="_blank" rel="noopener">Contact</a>
 </div>
 
 
@@ -440,15 +510,48 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <div class="actions"><a class="btn gold" href="#coffee">Shop Coffee</a><a class="btn" href="#story">Our Story</a></div>
 </div></div></section>
 
-<section class="section" id="coffee"><div class="container">
+<section class="section coffee-section" id="coffee"><div class="container">
 <div class="section-head"><div class="num">01 / Our Coffees</div><div><h2>COFFEE BEANS.</h2><p class="lead">Seasonal lots selected for sweetness, clarity and distinctive origin.</p></div></div>
 <div class="coffee-grid">
+<!-- TODO: replace with Imani bag mockup — tribal-pattern coffee bag photo. -->
 <article class="coffee" data-product='{"name":"Kenya AA","origin":"Kenya · Kirinyaga","prices":{"whole":{"100g":450,"250g":1250,"1kg":4200},"ground":{"100g":480,"250g":1300,"1kg":4400}}}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Imani Kenya AA bag in patterned packaging, upright against a pale background." width="136" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kenya AA</h3><p>Blackcurrant · Citrus · Brown Sugar<br>Washed · SL28 · SL34</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,250 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Kenya AA to cart">+</button></div></div></article>
+<!-- TODO: replace with Imani bag mockup — tribal-pattern coffee bag photo. -->
 <article class="coffee" data-product='{"name":"Kenya AB","origin":"Kenya · Nyeri","prices":{"whole":{"100g":410,"250g":1150,"1kg":3900},"ground":{"100g":440,"250g":1200,"1kg":4100}}}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Kenya AB product card with the shared Imani Kenya coffee bag photo." width="136" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Kenya AB</h3><p>Raisin · Caramel · Orange<br>Washed · SL28 · Ruiru 11</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,150 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Kenya AB to cart">+</button></div></div></article>
+<!-- TODO: replace with Imani bag mockup — current photo shows a plain white bag. -->
 <article class="coffee" data-product='{"name":"Meru","origin":"Kenya · Meru","prices":{"whole":{"100g":450,"250g":1250,"1kg":4200},"ground":{"100g":480,"250g":1300,"1kg":4400}}}'><div class="coffee-photo"><img src="https://i.postimg.cc/v42rvgGp/Whats-App-Image-2026-08-28-at-13-42-25-(1).jpg" alt="Meru coffee bag showing its origin label and coffee packaging." width="136" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Meru</div><h3>Meru</h3><p>Red Apple · Black Tea · Molasses<br>Washed · SL28 · Batian</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,250 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Meru to cart">+</button></div></div></article>
+<!-- TODO: replace with Imani bag mockup — current photo shows cherries. -->
 <article class="coffee" data-product='{"name":"Meru Peaberry","origin":"Kenya · Meru","prices":{"whole":{"100g":485,"250g":1350,"1kg":4550},"ground":{"100g":515,"250g":1400,"1kg":4750}}}'><div class="coffee-photo"><img src="https://i.postimg.cc/Bj7TCLJk/Whats-App-Image-2026-08-28-at-13-42-25-(2).jpg" alt="Meru Peaberry coffee bag with its label facing forward." width="174" height="180" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Meru</div><h3>Meru Peaberry</h3><p>Plum · Cocoa · Honey<br>Washed · Peaberry</p><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,350 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Meru Peaberry to cart">+</button></div></div></article>
+<!-- TODO: replace with Imani bag mockup — tribal-pattern coffee bag photo. -->
 <article class="coffee" data-product='{"name":"Nyeri AA Fruit Infused","origin":"Kenya · Nyeri","prices":{"whole":{"100g":520,"250g":1450,"1kg":4900},"ground":{"100g":550,"250g":1500,"1kg":5100}}}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Nyeri AA Fruit Infused product card with the shared Imani Kenya coffee bag photo." width="136" height="180" loading="lazy"><span class="coffee-badge">Limited Edition</span></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Nyeri AA Fruit Infused</h3><p>Berry · Tropical Fruit · Honey<br>Fruit Infused · AA</p><p class="fruit-infusion-note" hidden>Fruit infused: [FRUIT INFUSION EXPLANATION]</p><!-- TODO: fill before publishing --><p class="roast-info">Roasted to order · Best 7–21 days from roast</p><div class="coffee-bottom"><span>KSh 1,450 / 250g</span><button class="plus" type="button" aria-label="Choose size and add Nyeri AA Fruit Infused to cart">+</button></div></div></article>
 </div>
+<section class="drip-bag-subsection" aria-labelledby="drip-bag-heading">
+  <div class="drip-bag-header">
+    <p class="drip-bag-eyebrow">DRIP BAGS</p>
+    <h2 id="drip-bag-heading">Specialty coffee, anywhere.</h2>
+    <p class="lead">Single-serve drip bags of our Kenya lot. Just add hot water.</p>
+  </div>
+  <div class="coffee-grid drip-bag-grid">
+    <!-- TODO: set price once confirmed. -->
+    <!-- TODO: add net weight per sachet and box total. -->
+    <!-- TODO: artwork still contains lowercase "kenya", "Floral,Peach, chocolaty" spacing, lowercase "washed"/"Sl 24", and an unconfirmed region (Nyeri vs Kirinyaga); replace when corrected artwork is ready. -->
+    <article class="coffee drip-bag-card" data-product='{"name":"Kenya Drip Bags","origin":"Kenya"}' data-price="" data-photo="assets/imani-drip-box-photo.png">
+      <div class="coffee-photo">
+        <img src="assets/imani-drip-box-photo.png?v=1" alt="Imani Kenya Drip Bags label" width="768" height="947" loading="lazy" decoding="async">
+      </div>
+      <div class="coffee-body">
+        <div class="origin">Kenya</div>
+        <h3>Kenya Drip Bags</h3>
+        <p>Floral · Peach · Chocolate<br>Washed · SL24 · Kamavinde</p>
+        <p>Pack: 10 drip bags</p>
+        <p class="roast-info">Roasted to order · Best 7–21 days from roast</p>
+        <div class="coffee-bottom">
+          <span class="drip-bag-price">Price on request</span>
+          <a class="drip-bag-whatsapp" href="https://wa.me/254704604260?text=Hi%20Imani%2C%20I%27d%20like%20to%20order%20the%20Kenya%20Drip%20Bags%20%2810%20pack%29" target="_blank" rel="noopener">Ask on WhatsApp</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
 <details class="glossary">
 <summary>What do AA, washed and SL28 mean?</summary>
 <div class="glossary-body">
@@ -458,6 +561,182 @@ body:has(.trace-modal:not([hidden])) .wa-float,body:has(.mobile-nav.open) .wa-fl
 <p><strong>Ruiru 11 and Batian:</strong> Disease-resistant varieties developed by Kenyan research institutions. They let farmers keep producing where leaf rust and berry disease would otherwise wipe out a crop.</p>
 </div>
 </details>
+<script>
+(()=>{
+  const section=document.querySelector('.coffee-section');
+  if(!section)return;
+  const cards=[...section.querySelectorAll('.coffee')];
+  const escapeHTML=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const renderLabel=(data,origin,notes,process,variety,intensity,acidity)=>{
+    const specs=[];
+    if(process)specs.push(['Processing',process]);
+    if(variety)specs.push(['Variety',variety]);
+    if(data.altitude)specs.push(['Altitude',data.altitude]);
+    if(data.producer)specs.push(['Producer',data.producer]);
+    if(intensity)specs.push(['Intensity',`${intensity}/5`]);
+    if(acidity)specs.push(['Acidity',`${acidity}/5`]);
+    return `<div class="imani-label"><img class="imani-label-logo" src="assets/Imani_Logo_White_Transparent.png" alt="" width="220" height="64" loading="lazy" decoding="async"><span class="imani-label-brand">Specialty Coffee Co</span><span class="imani-label-country">${escapeHTML(origin.split('·')[0].trim().toUpperCase())}</span><strong class="imani-label-name">${escapeHTML(data.name)}</strong><dl class="imani-label-specs">${specs.map(([label,value])=>`<div class="imani-label-spec"><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join('')}</dl><p class="imani-label-notes">${escapeHTML(notes)}</p><span class="imani-label-weight">NET WEIGHT 250GMS</span></div>`;
+  };
+  // TODO: Kenya AA — altitude and producer are absent from product data.
+  // TODO: Kenya AB — altitude, producer, intensity and acidity are absent from product data.
+  // TODO: Meru — altitude, producer, intensity and acidity are absent from product data.
+  // TODO: Meru Peaberry — altitude, producer, intensity and acidity are absent from product data.
+  // TODO: Nyeri AA Fruit Infused — altitude, producer, intensity and acidity are absent from product data.
+  cards.forEach((card,index)=>{
+    card.classList.add('product-card');
+    const product=JSON.parse(card.dataset.product);
+    const media=card.querySelector('.coffee-photo');
+    const body=card.querySelector('.coffee-body');
+    const img=media.querySelector('img');
+    const name=body.querySelector('h3').textContent.trim();
+    const origin=body.querySelector('.origin').textContent.trim();
+    if(card.classList.contains('drip-bag-card')){
+      media.classList.add('product-media');
+      img.alt='Imani Kenya Drip Bags label';
+      img.decoding='async';
+      img.loading='lazy';
+      const labelAsset=img.closest('picture')||img;
+      const labelLayer=document.createElement('div');
+      labelLayer.className='product-label-layer';
+      labelLayer.setAttribute('aria-hidden','false');
+      labelAsset.parentNode.insertBefore(labelLayer,labelAsset);
+      labelLayer.appendChild(labelAsset);
+      media.prepend(labelLayer);
+      card.classList.add('product-card','drip-label-only');
+      const price=card.dataset.price.trim();
+      body.querySelector('.drip-bag-price').textContent=price||'Price on request';
+      const priceRow=body.querySelector('.coffee-bottom');
+      if(priceRow)body.appendChild(priceRow);
+      const photoPath=card.dataset.photo.trim();
+      if(photoPath){
+        const photoImage=new Image();
+        photoImage.alt='Imani Kenya Drip Bags box';
+        photoImage.width=768;
+        photoImage.height=947;
+        photoImage.decoding='async';
+        photoImage.loading='eager';
+        photoImage.addEventListener('load',()=>{
+          if(!photoImage.naturalWidth)return;
+          const photoLayer=document.createElement('div');
+          photoLayer.className='product-photo-layer';
+          photoLayer.setAttribute('aria-hidden','true');
+          photoLayer.appendChild(photoImage);
+          media.prepend(photoLayer);
+          card.classList.remove('drip-label-only');
+          labelLayer.setAttribute('aria-hidden','true');
+          const toggle=document.createElement('button');
+          toggle.type='button';
+          toggle.className='product-view-toggle';
+          toggle.setAttribute('aria-pressed','false');
+          toggle.setAttribute('aria-label','View label');
+          toggle.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.5"></circle><path d="m21 15-5-5L5 19"></path></svg>';
+          const updateLayerAccessibility=()=>{
+            const touchToggle=window.matchMedia('(hover: none)').matches;
+            const labelVisible=card.classList.contains('is-label-visible')||(!touchToggle&&(card.matches(':hover')||card.matches(':focus-within')));
+            labelLayer.setAttribute('aria-hidden',String(!labelVisible));
+            photoLayer.setAttribute('aria-hidden',String(labelVisible));
+            toggle.setAttribute('aria-pressed',String(labelVisible));
+            toggle.setAttribute('aria-label',labelVisible?'View bag photo':'View label');
+          };
+          toggle.addEventListener('click',()=>{
+            card.classList.toggle('is-label-visible');
+            updateLayerAccessibility();
+          });
+          media.appendChild(toggle);
+          const caption=document.createElement('p');
+          caption.className='product-media-caption';
+          caption.textContent='Hover for specs';
+          media.appendChild(caption);
+          card.addEventListener('pointerenter',updateLayerAccessibility);
+          card.addEventListener('pointerleave',updateLayerAccessibility);
+          card.addEventListener('focusin',updateLayerAccessibility);
+          card.addEventListener('focusout',()=>requestAnimationFrame(updateLayerAccessibility));
+          updateLayerAccessibility();
+        },{once:true});
+        photoImage.src=photoPath;
+      }
+      return;
+    }
+    const lines=body.querySelector(':scope > p:not(.roast-info)').innerHTML.split(/<br\s*\/?>/i).map(line=>line.replace(/<[^>]*>/g,'').trim());
+    const notes=lines[0]||'';
+    const [process='',...varietyParts]=(lines[1]||'').split(' · ');
+    const variety=varietyParts.join(' · ');
+    const isKirinyaga=origin.toLowerCase().includes('kirinyaga');
+    const intensity=isKirinyaga?4:null;
+    const acidity=isKirinyaga?3:null;
+    card.dataset.intensity=isKirinyaga?'4':'';
+    card.dataset.acidity=isKirinyaga?'3':'';
+    media.classList.add('product-media');
+    img.alt=`${name} bag`;
+    img.decoding='async';
+    img.loading='lazy';
+    const photoLayer=document.createElement('div');
+    photoLayer.className='product-photo-layer';
+    photoLayer.setAttribute('aria-hidden','true');
+    img.parentNode.insertBefore(photoLayer,img);
+    photoLayer.appendChild(img);
+    const labelLayer=document.createElement('div');
+    labelLayer.className='product-label-layer';
+    labelLayer.setAttribute('role','img');
+    labelLayer.setAttribute('aria-label',`${name} label`);
+    labelLayer.setAttribute('aria-hidden','true');
+    labelLayer.innerHTML=renderLabel(product,origin,notes,process,variety,intensity,acidity);
+    media.prepend(labelLayer);
+    const badge=media.querySelector('.coffee-badge');
+    if(badge){badge.style.zIndex='10';}
+    const toggle=document.createElement('button');
+    toggle.type='button';
+    toggle.className='product-view-toggle';
+    toggle.setAttribute('aria-pressed','false');
+    toggle.setAttribute('aria-label','View label');
+    toggle.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.5"></circle><path d="m21 15-5-5L5 19"></path></svg>';
+    toggle.addEventListener('click',()=>{
+      card.classList.toggle('is-label-visible');
+      updateLayerAccessibility();
+    });
+    media.appendChild(toggle);
+    const caption=document.createElement('p');
+    caption.className='product-media-caption';
+    caption.textContent='Hover for specs';
+    media.appendChild(caption);
+    const updateLayerAccessibility=()=>{
+      const touchToggle=window.matchMedia('(hover: none)').matches;
+      const labelVisible=card.classList.contains('is-label-visible')||(!touchToggle&&(card.matches(':hover')||card.matches(':focus-within')));
+      labelLayer.setAttribute('aria-hidden',String(!labelVisible));
+      photoLayer.setAttribute('aria-hidden',String(labelVisible));
+      toggle.setAttribute('aria-pressed',String(labelVisible));
+      toggle.setAttribute('aria-label',labelVisible?'View bag photo':'View label');
+    };
+    card.addEventListener('pointerenter',updateLayerAccessibility);
+    card.addEventListener('pointerleave',updateLayerAccessibility);
+    card.addEventListener('focusin',updateLayerAccessibility);
+    card.addEventListener('focusout',()=>requestAnimationFrame(updateLayerAccessibility));
+    updateLayerAccessibility();
+    const addButton=body.querySelector('.plus');
+    addButton.setAttribute('aria-label',`Add ${name} to order`);
+    const priceRow=body.querySelector('.coffee-bottom');
+    if(priceRow)body.appendChild(priceRow);
+  });
+  const dismissCaption=()=>{
+    section.classList.add('coffee-caption-dismissed');
+    try{sessionStorage.setItem('imaniCoffeeCaptionDismissed','1');}catch(error){/* Session storage may be unavailable in private browsing. */}
+    section.removeEventListener('pointerover',onFirstHover);
+  };
+  const onFirstHover=event=>{
+    if(event.pointerType!=='touch'&&event.target.closest('.product-media'))dismissCaption();
+  };
+  let captionDismissed=false;
+  try{captionDismissed=sessionStorage.getItem('imaniCoffeeCaptionDismissed')==='1';}catch(error){/* Session storage may be unavailable in private browsing. */}
+  if(captionDismissed)section.classList.add('coffee-caption-dismissed');
+  else section.addEventListener('pointerover',onFirstHover);
+  const setFirstRowLoading=()=>{
+    const columns=window.innerWidth>950?3:window.innerWidth>560?2:1;
+    cards.forEach((card,index)=>{const image=card.querySelector('.product-photo-layer img');if(image)image.loading=index<columns?'eager':'lazy';});
+  };
+  setFirstRowLoading();
+  window.addEventListener('resize',setFirstRowLoading,{passive:true});
+})();
+</script>
 </div></section>
 
 <!-- BREW GUIDE SECTION -->
@@ -692,7 +971,7 @@ function renderCart(){const count=cart.reduce((sum,item)=>sum+item.quantity,0),t
 function setCartOpen(open){cartDrawer.classList.toggle('open',open);cartBackdrop.classList.toggle('open',open);cartDrawer.setAttribute('aria-hidden',String(!open));document.querySelector('.cart-toggle').setAttribute('aria-expanded',String(open));if(open){cartDrawer.querySelector('.cart-close').focus();}else if(cartDrawer.contains(document.activeElement)){document.querySelector('.cart-toggle').focus();}}
 function closeOptionsModal(){if(!optionsModal.hidden){optionsModal.hidden=true;if(optionsTrigger&&optionsTrigger.isConnected)optionsTrigger.focus();}}
 function updatePriceDisplay(){const grind=document.querySelector('input[name="grind"]:checked').value,size=document.querySelector('input[name="size"]:checked').value;if(currentProduct){const price=currentProduct.prices[BREW_PRICE_TIER[grind]][size];document.getElementById('price-display').textContent=formatPrice(price);}}
-document.querySelectorAll('.coffee').forEach((card)=>{const button=card.querySelector('.plus');button.addEventListener('click',()=>{const productData=JSON.parse(card.getAttribute('data-product'));currentProduct=productData;optionsTrigger=button;document.getElementById('options-title').textContent=`Select Options - ${productData.name}`;document.querySelector('input[name="grind"]').checked=true;document.querySelector('input[name="size"]').checked=true;updatePriceDisplay();optionsModal.hidden=false;document.getElementById('grind-whole').focus();});});
+document.querySelectorAll('.coffee').forEach((card)=>{const button=card.querySelector('.plus');if(button)button.addEventListener('click',()=>{const productData=JSON.parse(card.getAttribute('data-product'));currentProduct=productData;optionsTrigger=button;document.getElementById('options-title').textContent=`Select Options - ${productData.name}`;document.querySelector('input[name="grind"]').checked=true;document.querySelector('input[name="size"]').checked=true;updatePriceDisplay();optionsModal.hidden=false;document.getElementById('grind-whole').focus();});});
 document.querySelectorAll('input[name="grind"],input[name="size"]').forEach(radio=>radio.addEventListener('change',updatePriceDisplay));
 document.getElementById('options-add').addEventListener('click',()=>{const grind=document.querySelector('input[name="grind"]:checked').value,size=document.querySelector('input[name="size"]:checked').value,price=currentProduct.prices[BREW_PRICE_TIER[grind]][size];const item={name:currentProduct.name,origin:currentProduct.origin,grind:BREW_LABELS[grind],size,price,quantity:1};const existing=cart.find(p=>p.name===item.name&&p.grind===item.grind&&p.size===item.size);if(existing)existing.quantity+=1;else cart.push(item);renderCart();closeOptionsModal();setCartOpen(true);});
 document.getElementById('options-cancel').addEventListener('click',closeOptionsModal);
