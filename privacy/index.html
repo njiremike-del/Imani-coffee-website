@@ -5,28 +5,52 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy | Imani Coffee Co.</title>
 <meta name="description" content="How Imani Coffee Co. uses information submitted through orders and sign-up forms.">
+<meta name="theme-color" content="#0b2419">
+<link rel="canonical" href="https://njiremike-del.github.io/Imani-coffee-website/privacy/">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
 <script src="../assets/site-config.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
-:root{--deep:#1a1208;--green:#0f3b2a;--cream:#f9f5ee;--ink:#1a1208;--muted:#5a4a3a}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+:root{--forest-900:#0b2419;--forest-700:#0f3b2a;--forest-500:#2f5d3f;--cream-50:#fbf8f1;--cream-100:#f5efdc;--sand-200:#ebe2cb;--ink:#1a1208;--muted:#5b574d;--muted-on-dark:#b9c4b5;--gold:#c8a35b;--gold-dark:#7f6023;--border-light:rgba(15,59,42,.14);--border-dark:rgba(245,239,220,.22);--white:#fff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.7 "DM Sans",sans-serif}
+body{margin:0;background:var(--cream-50);color:var(--ink);font:16px/1.7 "Montserrat",sans-serif}
 main{width:min(760px,calc(100% - 40px));margin:0 auto;padding:72px 0}
-h1,h2{font-family:"Playfair Display",serif;line-height:1.15}
+h1,h2{font-family:"Cormorant Garamond",serif;line-height:1.15;color:var(--forest-700)}
 h1{font-size:clamp(38px,7vw,58px);margin:0 0 12px}
 h2{font-size:24px;margin:32px 0 8px}
 p{margin:0 0 12px;color:var(--muted)}
-a{color:var(--green);text-underline-offset:3px}
-.back{display:inline-flex;min-height:44px;align-items:center;margin-bottom:32px}
+a{color:var(--forest-500);text-underline-offset:3px}
+a:hover{text-decoration:underline}
+.policy-header{position:sticky;top:0;z-index:20;background:var(--forest-900);color:var(--cream-100);border-bottom:1px solid var(--border-dark)}
+.policy-nav{max-width:1180px;min-height:78px;margin:auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.policy-brand{display:flex;align-items:center;gap:12px;color:var(--cream-100);font-weight:600;letter-spacing:.1em}
+.policy-brand img{width:58px;height:50px;object-fit:contain}
+.policy-nav nav{display:flex;flex-wrap:wrap;gap:22px}
+.policy-nav nav a{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.policy-footer{background:var(--forest-900);color:var(--muted-on-dark);border-top:1px solid var(--gold);padding:48px 24px}
+.footer-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:28px}
+.footer-grid h2{font:600 12px "Montserrat",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-100);margin:0 0 14px}
+.footer-brand strong{color:var(--cream-100);letter-spacing:.12em}
+.footer-brand p{color:var(--muted-on-dark);margin:8px 0}
+.footer-grid ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.footer-grid a{color:var(--gold);font-size:13px}
+.footer-grid .footer-email{color:var(--gold)}
+.footer-grid .footer-map{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid var(--cream-100);background:var(--cream-100);color:var(--forest-900);text-decoration:none}
+.footer-grid .footer-map:hover{background:var(--sand-200);border-color:var(--sand-200)}
+.footer-bottom{max-width:1180px;margin:28px auto 0;padding-top:16px;border-top:1px solid var(--border-dark);font-size:12px;color:var(--muted-on-dark)}
+:focus-visible{outline:2px solid var(--forest-700);outline-offset:2px}
+.policy-header :focus-visible,.policy-footer :focus-visible{outline-color:var(--gold)}
+@media(max-width:700px){.policy-nav{align-items:flex-start;flex-direction:column}.policy-nav nav{gap:12px}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<header class="policy-header"><div class="policy-nav"><a class="policy-brand" href="../index.html"><img src="../assets/Imani_Logo_White_Transparent.png" alt="">IMANI COFFEE CO.</a><nav aria-label="Main navigation"><a href="../index.html#coffee">Coffee</a><a href="../index.html#subscription">Subscription</a><a href="../index.html#story">Our Story</a><a href="../index.html#wholesale">Wholesale</a><a href="../index.html#contact">Contact</a><a href="../index.html#faq">FAQ</a></nav></div></header>
 <main>
-<a class="back" href="../index.html">← Back to Imani Coffee Co.</a>
 <h1>Privacy</h1>
+<p>Registered business name: Imani Kikuyu Specialty Coffee &amp; Roastery, registration no. BN-79S622VZ.</p>
 <p>This notice explains what information Imani Coffee Co. receives when you place an order or sign up for updates.</p>
 
 <h2>Information we collect</h2>
@@ -42,8 +66,14 @@ a{color:var(--green);text-underline-offset:3px}
 <p>We keep order information only as long as needed to fulfill and support the order and meet applicable record-keeping obligations. We keep sign-up information until you unsubscribe or ask us to remove it, unless we need to retain it for a legal reason.</p>
 
 <h2>Contact</h2>
-<p>For a privacy question or a request about your information, email <a data-contact-email>contact address</a>.</p>
+<p>For a privacy question or a request about your information, email <a data-contact-email>getimanicoffee@gmail.com</a>.</p>
 </main>
+<footer class="policy-footer"><div class="footer-grid">
+<div class="footer-brand"><strong>IMANI COFFEE CO.</strong><p>Imani Specialty Coffee &amp; Roastery</p><p>Roasted at origin. Rooted in character.</p><a class="footer-email" data-contact-email>getimanicoffee@gmail.com</a></div>
+<div><h2>Sitemap</h2><ul><li><a href="../index.html#coffee">Coffee</a></li><li><a href="../index.html#subscription">Subscription</a></li><li><a href="../index.html#story">Our Story</a></li><li><a href="../index.html#brew-guide">Brewing</a></li><li><a href="../index.html#wholesale">Wholesale</a></li><li><a href="../index.html#academy">Academy</a></li><li><a href="../index.html#faq">FAQ</a></li></ul></div>
+<div><h2>Legal</h2><ul><li><a href="./">Privacy</a></li><li><a href="../delivery-returns.html">Delivery &amp; Returns</a></li></ul></div>
+<div><h2>Social</h2><ul><li><a href="https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/Get_ImaniCoffee" target="_blank" rel="noopener">X</a></li><li><a href="../index.html#contact">Trace your coffee</a></li><li><a href="https://maps.app.goo.gl/su8LmxajzhurJp2w7?g_st=ac" target="_blank" rel="noopener">Find us on map</a></li></ul></div>
+</div><div class="footer-bottom">© 2026 Imani Coffee Co.</div></footer>
 <script>
 document.querySelectorAll('[data-contact-email]').forEach(link=>{
   link.href=`mailto:${CONTACT_EMAIL}`;
