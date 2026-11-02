@@ -120,7 +120,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}h1{font-size:cla
 .opt-fieldset{border:none;padding:0;margin:0}
 .opt-fieldset+.opt-fieldset{margin-top:28px}
 .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.opt-grid.opt-grid--size{grid-template-columns:repeat(3,1fr)}
+.opt-grid.opt-grid--size{grid-template-columns:repeat(4,minmax(0,1fr))}
 .opt-card{position:relative}
 .opt-card input{position:absolute;opacity:0;width:1px;height:1px}
 .opt-card label{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1px solid var(--border-light);border-radius:8px;background:var(--white);cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;min-height:100%}
@@ -139,7 +139,7 @@ h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}h1{font-size:cla
 #options-cancel:hover{border-color:var(--gold)}
 #options-add{min-height:48px;padding:0 26px;border-radius:6px;border:0;background:var(--forest-900);color:var(--cream-100);cursor:pointer;font-size:13px;letter-spacing:.04em;transition:background .18s ease,transform .18s ease}
 #options-add:hover{background:var(--forest-900);transform:translateY(-1px)}
-@media(max-width:480px){.opt-grid{grid-template-columns:1fr}.opt-grid.opt-grid--size{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.opt-grid{grid-template-columns:1fr}.opt-grid.opt-grid--size{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 @media(max-width:950px){
 	.sustain-actions{flex-direction:column;align-items:flex-start}
@@ -500,6 +500,10 @@ img{max-width:100%;height:auto}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 input,select,textarea{font-size:16px!important}
 .btn,.plus,.cart-toggle,.cart-controls button,.checkout-close,.cart-close,.trace-close{min-height:44px;min-width:44px}
+.coffee-bottom>[data-price-label]{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.coffee-other-sizes{font-size:10px;line-height:1.2;color:var(--muted);font-weight:400}
+body.options-modal-open{overflow:hidden}
+#options-modal .trace-modal__panel{max-height:calc(100svh - 32px);overflow-y:auto;overscroll-behavior:contain}
 .pay-fields select{width:100%;padding:12px;border:1px solid var(--border-light);border-radius:8px;background:var(--white)}
 .checkout-panel{max-height:calc(100svh - 24px);overflow:auto;padding-bottom:calc(20px + env(safe-area-inset-bottom))}
 .cart-footer{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
@@ -793,11 +797,17 @@ footer .footer-map:hover{background:var(--sand-200);border-color:var(--sand-200)
 </div>
 </details>
 <script>
-const PRICES_KES_250G={kenya_aa:1250,kenya_ab:1150,meru:1250,meru_peaberry:1350,nyeri_aa_fruit_infused:1450,kirinyaga_ruiru11_anaerobic:1400};
+const SIZES_ENABLED=['100g','250g','500g','1kg'];
+const PRICES_KES={
+  kenya_aa:{'100g':550,'250g':1250,'500g':2400,'1kg':4500},
+  kenya_ab:{'100g':500,'250g':1150,'500g':2200,'1kg':4150},
+  meru:{'100g':550,'250g':1250,'500g':2400,'1kg':4500},
+  meru_peaberry:{'100g':600,'250g':1350,'500g':2550,'1kg':4850},
+  nyeri_aa_fruit_infused:{'100g':650,'250g':1450,'500g':2750,'1kg':5200},
+  kirinyaga_ruiru11_anaerobic:{'100g':650,'250g':1400,'500g':2650,'1kg':5050}
+};
 const DRIP_BOX_PRICE=1400;
-const SIZES_ENABLED=['250g'];
-const PRICE_100G=null;
-const PRICE_1KG=null;
+const FREE_DELIVERY_THRESHOLD=2500;
 const SUBSCRIPTION_DISCOUNT=0.15;
 const WHOLESALE_PER_KG=2200;
 const WHOLESALE_INTRO_PER_KG=2000;
@@ -837,10 +847,17 @@ const SHOW_INTRO_RATE=false;
     const img=media.querySelector('img');
     const name=body.querySelector('h3').textContent.trim();
     const origin=body.querySelector('.origin').textContent.trim();
-    const price=product.id==='drip_box'?DRIP_BOX_PRICE:PRICES_KES_250G[product.id];
+    const price=product.id==='drip_box'?DRIP_BOX_PRICE:PRICES_KES[product.id]['250g'];
     if(!Number.isInteger(price)||price<=0)throw new Error(`Missing valid price for product: ${product.id}`);
     const priceLabel=body.querySelector('[data-price-label]');
     if(priceLabel)priceLabel.textContent=`${formatDataPrice(price)} / ${product.id==='drip_box'?'10 drip bags':'250g'}`;
+    if(priceLabel&&product.id!=='drip_box'){
+      const otherSizes=SIZES_ENABLED.filter(size=>size!=='250g');
+      const otherSizeLabel=document.createElement('small');
+      otherSizeLabel.className='coffee-other-sizes';
+      otherSizeLabel.textContent=`Also in ${otherSizes.slice(0,-1).join(', ')} and ${otherSizes[otherSizes.length-1]}`;
+      priceLabel.appendChild(otherSizeLabel);
+    }
     if(card.classList.contains('drip-bag-card')){
       media.classList.add('product-media');
       img.alt='Imani Kenya Drip Bags label';
@@ -989,7 +1006,7 @@ const SHOW_INTRO_RATE=false;
     name:'Imani Coffee Co. Coffees',
     itemListElement:cards.map((card,index)=>{
       const product=JSON.parse(card.dataset.product);
-      const price=product.id==='drip_box'?DRIP_BOX_PRICE:PRICES_KES_250G[product.id];
+      const price=product.id==='drip_box'?DRIP_BOX_PRICE:PRICES_KES[product.id]['250g'];
       const image=card.querySelector('.coffee-photo img');
       return {
         '@type':'ListItem',
@@ -999,7 +1016,14 @@ const SHOW_INTRO_RATE=false;
           name:product.name,
           description:Array.from(card.querySelectorAll('.coffee-body > p:not([hidden])')).map(paragraph=>paragraph.textContent.trim()).join('. '),
           image:image?image.src:'',
-          offers:{'@type':'Offer',priceCurrency:'KES',price:String(price)}
+          offers:product.id==='drip_box'
+            ?{'@type':'Offer',priceCurrency:'KES',price:String(DRIP_BOX_PRICE)}
+            :SIZES_ENABLED.map(size=>({
+              '@type':'Offer',
+              name:size,
+              priceCurrency:'KES',
+              price:String(PRICES_KES[product.id][size])
+            }))
         }
       };
     })
@@ -1188,7 +1212,7 @@ const SHOW_INTRO_RATE=false;
 <div class="footer-column footer-socials"><h2>Social</h2><a href="https://www.instagram.com/getimanicoffee?igsi=Mm10eTdoeGRzZWw=" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/Get_ImaniCoffee" target="_blank" rel="noopener">X</a><button class="footer-trace" id="trace-coffee" type="button">Trace your coffee</button><a class="btn footer-map" href="https://maps.app.goo.gl/su8LmxajzhurJp2w7?g_st=ac" target="_blank" rel="noopener">Find us on map</a></div>
 </div><p class="footer-bottom">© 2026 Imani Coffee Co.</p></div></footer>
 
-<div class="cart-backdrop" id="cart-backdrop"></div><aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true" inert><div class="cart-head"><h2>Your Cart</h2><button class="cart-close" type="button" aria-label="Close cart">&times;</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">KSh 0</strong></div><p class="cart-note">Taxes and delivery calculated at checkout.</p><button id="checkout-btn" type="button" class="btn primary" style="width:100%;justify-content:center;margin-top:10px">Checkout</button></div></aside>
+<div class="cart-backdrop" id="cart-backdrop"></div><aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true" inert><div class="cart-head"><h2>Your Cart</h2><button class="cart-close" type="button" aria-label="Close cart">&times;</button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">KSh 0</strong></div><p class="cart-note" id="cart-checkout-note">Taxes and delivery calculated at checkout.</p><p class="cart-note" id="cart-delivery-status" role="status">Free delivery on orders over KSh 2,500.</p><button id="checkout-btn" type="button" class="btn primary" style="width:100%;justify-content:center;margin-top:10px">Checkout</button></div></aside>
 
 <div class="checkout-modal" id="checkout-modal" hidden role="dialog" aria-modal="true" aria-labelledby="checkout-title">
 <div class="checkout-panel">
@@ -1198,6 +1222,7 @@ const SHOW_INTRO_RATE=false;
 <div class="checkout-step active" data-step="1">
   <div class="checkout-summary-list" id="checkout-summary-list"></div>
   <div class="checkout-subtotal"><span>Subtotal</span><strong id="checkout-subtotal">KSh 0</strong></div>
+    <div class="checkout-subtotal"><span>Delivery</span><strong id="checkout-delivery">Calculated at checkout</strong></div>
   <div class="checkout-actions"><button type="button" class="btn primary" id="to-payment-step" style="width:100%;justify-content:center">Continue</button></div>
 </div>
 
@@ -1237,37 +1262,45 @@ const SHOW_INTRO_RATE=false;
 <div class="opt-card"><input type="radio" id="grind-mokapot" name="grind" value="mokapot"><label for="grind-mokapot"><span class="opt-name">Moka Pot</span><span class="opt-detail">Fine-medium</span></label></div>
 <div class="opt-card"><input type="radio" id="grind-espresso" name="grind" value="espresso"><label for="grind-espresso"><span class="opt-name">Espresso</span><span class="opt-detail">Fine</span></label></div>
 </div></fieldset><fieldset class="opt-fieldset"><legend class="opt-legend">Size</legend><div class="opt-grid opt-grid--size">
-<div class="opt-card"><input type="radio" id="size-250g" name="size" value="250g" checked><label for="size-250g"><span class="opt-name">250g</span></label></div>
+<div class="opt-card"><input type="radio" id="size-250g" name="size" value="250g"><label for="size-250g"><span class="opt-name">250g</span></label></div>
 </div></fieldset><div class="opt-price-band">Price: <strong id="price-display">Select a size</strong></div></div><div class="trace-modal__actions"><button type="button" id="options-cancel">Cancel</button><button type="button" id="options-add">Add to Cart</button></div></div></div>
 
 <script>
 const cartKey='imaniCoffeeCart';
 let cart=JSON.parse(localStorage.getItem(cartKey)||'[]');
-const cartDrawer=document.getElementById('cart-drawer'),cartBackdrop=document.getElementById('cart-backdrop'),cartItems=document.getElementById('cart-items'),cartCount=document.getElementById('cart-count'),cartTotal=document.getElementById('cart-total');
+const cartDrawer=document.getElementById('cart-drawer'),cartBackdrop=document.getElementById('cart-backdrop'),cartItems=document.getElementById('cart-items'),cartCount=document.getElementById('cart-count'),cartTotal=document.getElementById('cart-total'),cartCheckoutNote=document.getElementById('cart-checkout-note'),cartDeliveryStatus=document.getElementById('cart-delivery-status');
 const optionsModal=document.getElementById('options-modal');
 const formatPrice=value=>`KSh ${value.toLocaleString('en-KE')}`;
 let currentProduct=null;
 let optionsTrigger=null;
 const sizeOptions=document.querySelector('.opt-grid--size');
-sizeOptions.innerHTML=SIZES_ENABLED.map((size,index)=>`<div class="opt-card"><input type="radio" id="size-${size}" name="size" value="${size}"${index===0?' checked':''}><label for="size-${size}"><span class="opt-name">${size}</span></label></div>`).join('');
+function renderSizeOptions(productId){
+  const availableSizes=SIZES_ENABLED.filter(size=>{
+    const prices=PRICES_KES[productId];
+    const price=prices&&prices[size];
+    return Number.isFinite(price)&&price>0;
+  });
+  sizeOptions.innerHTML=availableSizes.map(size=>`<div class="opt-card"><input type="radio" id="size-${size}" name="size" value="${size}"><label for="size-${size}"><span class="opt-name">${size}</span></label></div>`).join('');
+  return availableSizes;
+}
 function getProductPrice(productId,size){
   if(!SIZES_ENABLED.includes(size))return null;
-  if(size==='250g')return PRICES_KES_250G[productId]??null;
-  if(size==='100g')return PRICE_100G;
-  if(size==='1kg')return PRICE_1KG;
-  return null;
+  const prices=PRICES_KES[productId];
+  const price=prices&&prices[size];
+  return Number.isFinite(price)&&price>0?price:null;
 }
 /* Brew method labels + price-tier mapping. Only "whole" and "ground" price tiers exist in product data,
    so each ground brew method is priced at the existing "ground" tier (no new prices invented). */
 const BREW_LABELS={whole:'Whole Bean',frenchpress:'French Press (coarse)',pourover:'Pour-over / V60 (medium)',mokapot:'Moka Pot (fine-medium)',espresso:'Espresso (fine)'};
 const BREW_PRICE_TIER={whole:'whole',frenchpress:'ground',pourover:'ground',mokapot:'ground',espresso:'ground'};
-function renderCart(){const count=cart.reduce((sum,item)=>sum+item.quantity,0),total=cart.reduce((sum,item)=>sum+item.price*item.quantity,0);cartCount.textContent=count;cartTotal.textContent=formatPrice(total);cartItems.innerHTML=cart.length?cart.map((item,idx)=>`<div class="cart-item"><div><h3>${item.name}</h3><p>${item.origin}</p><p style="font-size:12px;color:var(--gold-dark)">${item.grind} · ${item.size}</p><div class="cart-controls"><button type="button" data-action="decrease" data-id="${idx}" aria-label="Decrease ${item.name} quantity">−</button><span>${item.quantity}</span><button type="button" data-action="increase" data-id="${idx}" aria-label="Increase ${item.name} quantity">+</button><button class="cart-remove" type="button" data-action="remove" data-id="${idx}">Remove</button></div></div><span class="cart-price">${formatPrice(item.price*item.quantity)}</span></div>`).join(''):'<p class="cart-empty">Your cart is empty. Add a coffee to begin.</p>';localStorage.setItem(cartKey,JSON.stringify(cart));}
+function renderCart(){const count=cart.reduce((sum,item)=>sum+item.quantity,0),total=cart.reduce((sum,item)=>sum+item.price*item.quantity,0),freeDelivery=total>FREE_DELIVERY_THRESHOLD;cartCount.textContent=count;cartTotal.textContent=formatPrice(total);cartCheckoutNote.textContent=freeDelivery?'Taxes calculated at checkout.':'Taxes and delivery calculated at checkout.';cartDeliveryStatus.textContent=freeDelivery?'Free delivery applies to this order.':'Free delivery on orders over KSh 2,500.';cartItems.innerHTML=cart.length?cart.map((item,idx)=>`<div class="cart-item"><div><h3>${item.name}</h3><p>${item.origin}</p><p style="font-size:12px;color:var(--gold-dark)">${item.grind} · ${item.size}</p><div class="cart-controls"><button type="button" data-action="decrease" data-id="${idx}" aria-label="Decrease ${item.name} quantity">−</button><span>${item.quantity}</span><button type="button" data-action="increase" data-id="${idx}" aria-label="Increase ${item.name} quantity">+</button><button class="cart-remove" type="button" data-action="remove" data-id="${idx}">Remove</button></div></div><span class="cart-price">${formatPrice(item.price*item.quantity)}</span></div>`).join(''):'<p class="cart-empty">Your cart is empty. Add a coffee to begin.</p>';localStorage.setItem(cartKey,JSON.stringify(cart));}
 function setCartOpen(open){const restoreFocus=!open&&cartDrawer.contains(document.activeElement);cartDrawer.classList.toggle('open',open);cartBackdrop.classList.toggle('open',open);cartDrawer.setAttribute('aria-hidden',String(!open));if(open)cartDrawer.removeAttribute('inert');else cartDrawer.setAttribute('inert','');document.querySelector('.cart-toggle').setAttribute('aria-expanded',String(open));if(open){cartDrawer.querySelector('.cart-close').focus();}else if(restoreFocus){document.querySelector('.cart-toggle').focus();}}
-function closeOptionsModal(){if(!optionsModal.hidden){optionsModal.hidden=true;if(optionsTrigger&&optionsTrigger.isConnected)optionsTrigger.focus();}}
+function closeOptionsModal(){if(!optionsModal.hidden){optionsModal.hidden=true;document.body.classList.remove('options-modal-open');if(optionsTrigger&&optionsTrigger.isConnected)optionsTrigger.focus();}}
 function addCartItem(item){if(!Number.isFinite(item.price)||item.price<=0)throw new Error(`Invalid cart price for ${item.name}`);const existing=cart.find(product=>product.name===item.name&&product.grind===item.grind&&product.size===item.size);if(existing)existing.quantity+=1;else cart.push({...item,quantity:1});renderCart();}
-function updatePriceDisplay(){if(!currentProduct)return;const sizeInput=document.querySelector('input[name="size"]:checked'),display=document.getElementById('price-display'),addButton=document.getElementById('options-add'),price=sizeInput?getProductPrice(currentProduct.id,sizeInput.value):null;display.textContent=Number.isFinite(price)&&price>0?formatPrice(price):'Price on request';addButton.disabled=!(Number.isFinite(price)&&price>0);}
-document.querySelectorAll('.coffee').forEach(card=>{const button=card.querySelector('.plus');if(button)button.addEventListener('click',()=>{const productData=JSON.parse(card.getAttribute('data-product'));optionsTrigger=button;if(productData.id==='drip_box'){addCartItem({name:productData.name,origin:productData.origin,grind:'Pack of 10',size:'10 drip bags',price:DRIP_BOX_PRICE});setCartOpen(true);return;}if(!SIZES_ENABLED.some(size=>{const price=getProductPrice(productData.id,size);return Number.isFinite(price)&&price>0;}))throw new Error(`Missing valid price for product: ${productData.id}`);productData.prices={whole:Object.fromEntries(SIZES_ENABLED.map(size=>[size,getProductPrice(productData.id,size)])),ground:Object.fromEntries(SIZES_ENABLED.map(size=>[size,getProductPrice(productData.id,size)]))};currentProduct=productData;document.getElementById('options-title').textContent=`Select Options - ${productData.name}`;document.querySelector('input[name="grind"]').checked=true;const firstSize=document.querySelector('input[name="size"]');if(!firstSize)throw new Error('No enabled product sizes are configured.');firstSize.checked=true;updatePriceDisplay();optionsModal.hidden=false;document.getElementById('grind-whole').focus();});});
-document.querySelectorAll('input[name="grind"],input[name="size"]').forEach(radio=>radio.addEventListener('change',updatePriceDisplay));
+function updatePriceDisplay(){if(!currentProduct)return;const sizeInput=document.querySelector('input[name="size"]:checked'),display=document.getElementById('price-display'),addButton=document.getElementById('options-add'),price=sizeInput?getProductPrice(currentProduct.id,sizeInput.value):null;display.textContent=sizeInput?(Number.isFinite(price)&&price>0?formatPrice(price):'Price unavailable'):'Select a size';addButton.disabled=!(Number.isFinite(price)&&price>0);}
+document.querySelectorAll('.coffee').forEach(card=>{const button=card.querySelector('.plus');if(button)button.addEventListener('click',()=>{const productData=JSON.parse(card.getAttribute('data-product'));optionsTrigger=button;if(productData.id==='drip_box'){addCartItem({name:productData.name,origin:productData.origin,grind:'Pack of 10',size:'10 drip bags',price:DRIP_BOX_PRICE});setCartOpen(true);return;}if(!renderSizeOptions(productData.id).length)throw new Error(`Missing valid enabled size prices for product: ${productData.id}`);currentProduct=productData;document.getElementById('options-title').textContent=`Select Options - ${productData.name}`;document.querySelector('input[name="grind"]').checked=true;updatePriceDisplay();optionsModal.hidden=false;document.body.classList.add('options-modal-open');document.getElementById('grind-whole').focus();});});
+document.querySelectorAll('input[name="grind"]').forEach(radio=>radio.addEventListener('change',updatePriceDisplay));
+sizeOptions.addEventListener('change',updatePriceDisplay);
 document.getElementById('options-add').addEventListener('click',()=>{if(!currentProduct)return;const grind=document.querySelector('input[name="grind"]:checked').value,size=document.querySelector('input[name="size"]:checked')?.value,price=size?getProductPrice(currentProduct.id,size):null;if(!Number.isFinite(price)||price<=0){updatePriceDisplay();return;}addCartItem({name:currentProduct.name,origin:currentProduct.origin,grind:BREW_LABELS[grind],size,price});closeOptionsModal();setCartOpen(true);});
 document.getElementById('options-cancel').addEventListener('click',closeOptionsModal);
 document.querySelector('#options-modal .trace-close').addEventListener('click',closeOptionsModal);
@@ -1285,12 +1318,14 @@ cartItems.addEventListener('click',event=>{const button=event.target.closest('bu
   const stepIndicators=modal.querySelectorAll('[data-step-indicator]');
   const summaryList=document.getElementById('checkout-summary-list');
   const subtotalEl=document.getElementById('checkout-subtotal');
+  const deliveryEl=document.getElementById('checkout-delivery');
   const nameEl=document.getElementById('order-name'),phoneEl=document.getElementById('mpesa-phone');
   const areaEl=document.getElementById('order-area'),locEl=document.getElementById('order-location');
   const total=()=>cart.reduce((s,i)=>s+i.price*i.quantity,0);
   window.openCheckout=function(){
     summaryList.innerHTML=cart.map(item=>`<div class="checkout-summary-item"><div><span class="name">${item.name}</span><span class="meta">${item.grind} · ${item.size} · Qty ${item.quantity}</span></div><span>${formatPrice(item.price*item.quantity)}</span></div>`).join('');
     subtotalEl.textContent=formatPrice(total());
+    deliveryEl.textContent=total()>FREE_DELIVERY_THRESHOLD?'Free':'Calculated at checkout';
     goToStep(1);modal.hidden=false;setCartOpen(false);document.body.style.overflow='hidden';document.getElementById('to-payment-step').focus();
   };
   function closeCheckout(){if(!modal.hidden){modal.hidden=true;document.body.style.overflow='';document.querySelector('.cart-toggle').focus();}}
@@ -1314,7 +1349,8 @@ cartItems.addEventListener('click',event=>{const button=event.target.closest('bu
     if(!okName){nameEl.focus();return;} if(!okPhone){phoneEl.focus();return;} if(!okLocation){locEl.focus();return;}
     const orderId='IMANI-'+Math.floor(100000+Math.random()*900000);
     const lines=cart.map(i=>`• ${i.name} | ${i.grind} | ${i.size} x${i.quantity} = ${formatPrice(i.price*i.quantity)}`).join('\n');
-    const msg=`Hi Imani, new order ${orderId}\n\n${lines}\n\nSubtotal: ${formatPrice(total())}\nDelivery: ${areaEl.value}${locEl.value.trim()?' ('+locEl.value.trim()+')':''}\nName: ${nameEl.value.trim()}\nPhone: ${phoneEl.value.trim()}`;
+    const deliveryMessage=total()>FREE_DELIVERY_THRESHOLD?'Free (orders over KSh 2,500)':'Calculated at checkout';
+    const msg=`Hi Imani, new order ${orderId}\n\n${lines}\n\nSubtotal: ${formatPrice(total())}\nDelivery: ${deliveryMessage} · ${areaEl.value}${locEl.value.trim()?' ('+locEl.value.trim()+')':''}\nName: ${nameEl.value.trim()}\nPhone: ${phoneEl.value.trim()}`;
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
     document.getElementById('order-id-display').textContent=`Order ${orderId}`;
     goToStep(3);cart=[];renderCart();
@@ -1524,7 +1560,8 @@ renderCart();
       element.innerHTML='Price on request <span>· 15% off</span>';
       return;
     }
-    const price=Math.round(Math.min(...Object.values(PRICES_KES_250G))*(1-SUBSCRIPTION_DISCOUNT));
+    const size=element.dataset.subPrice;
+    const price=Math.round(Math.min(...Object.values(PRICES_KES).map(prices=>prices[size]))*(1-SUBSCRIPTION_DISCOUNT));
     element.innerHTML=`From ${formatConfiguredPrice(price)} per delivery <span>· 15% off</span>`;
   });
   document.querySelectorAll('[data-contact-email]').forEach(link=>{
