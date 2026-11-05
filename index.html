@@ -134,12 +134,16 @@ h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}h1{font-size:cla
 .opt-price-band{margin-top:26px;padding:16px 18px;background:var(--forest-900);border-radius:8px;display:flex;align-items:center;justify-content:space-between}
 .opt-price-band span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
 .opt-price-band strong{font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--cream-100);font-weight:600}
-#options-modal .trace-modal__actions{margin-top:24px}
+#options-modal .trace-modal__actions{position:static;margin-top:24px;margin-bottom:0}
 #options-cancel{min-height:48px;padding:0 22px;border-radius:6px;border:1px solid var(--border-light);background:var(--white);color:var(--ink);cursor:pointer;font-size:13px;transition:border-color .18s ease}
 #options-cancel:hover{border-color:var(--gold)}
 #options-add{min-height:48px;padding:0 26px;border-radius:6px;border:0;background:var(--forest-900);color:var(--cream-100);cursor:pointer;font-size:13px;letter-spacing:.04em;transition:background .18s ease,transform .18s ease}
 #options-add:hover{background:var(--forest-900);transform:translateY(-1px)}
-@media(max-width:480px){.opt-grid{grid-template-columns:1fr}.opt-grid.opt-grid--size{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#options-add:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.options-product-preview{display:flex;justify-content:center;margin:0 0 16px}
+.options-product-preview[hidden]{display:none}
+.options-product-preview img{display:block;width:auto;max-width:100%;height:120px;object-fit:contain}
+@media(max-width:480px){.opt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.opt-grid.opt-grid--size{grid-template-columns:repeat(3,minmax(0,1fr))}.options-product-preview{margin-bottom:8px}.options-product-preview img{height:64px}}
 
 @media(max-width:950px){
 	.sustain-actions{flex-direction:column;align-items:flex-start}
@@ -352,6 +356,7 @@ h1{font-size:clamp(58px,7vw,96px);line-height:.95;margin-bottom:26px}
 .coffee-section .product-photo-layer{z-index:1;opacity:1}
 .coffee-section .product-label-layer{z-index:2;opacity:0;transform:scale(.96);pointer-events:none;box-shadow:none;transition:opacity 280ms cubic-bezier(.2,.7,.2,1),transform 280ms cubic-bezier(.2,.7,.2,1)}
 .coffee-section .product-photo-layer img,.coffee-section .kirinyaga-label-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.coffee-section .product-label-layer>img{display:block;width:100%;height:100%;object-fit:cover}
 .coffee-section .product-photo-layer img{filter:brightness(1);transition:filter 280ms cubic-bezier(.2,.7,.2,1)}
 .coffee-section .coffee.is-label-visible .product-label-layer{opacity:1;transform:scale(1);box-shadow:0 12px 32px color-mix(in srgb,var(--forest-900) 28%,transparent)}
 .coffee-section .coffee.is-label-visible .product-photo-layer img{filter:brightness(.7)}
@@ -748,6 +753,7 @@ footer .footer-map:hover{background:var(--sand-200);border-color:var(--sand-200)
 <section class="section coffee-section" id="coffee"><div class="container">
 <div class="section-head"><div class="num">01 / Coffee</div><div><h2>COFFEE BEANS.</h2><p class="lead">Seasonal lots selected for sweetness, clarity and distinctive origin.</p><p class="coffee-roast-note">Roasted to order · Best 7–21 days from roast</p></div></div>
 <div class="coffee-grid">
+<article class="coffee" data-product='{"id":"kenya_embu","name":"Kenya Embu","origin":"Kenya · Embu","producer":"Kamavindi","variety":"Ruiru 11","process":"Washed","weight":"250g"}'><div class="coffee-photo"><img src="assets/imani-embu-250g.webp" alt="Imani Kenya Embu washed Ruiru 11, 250g bag" width="1086" height="1448" decoding="async" loading="eager"></div><div class="coffee-body"><div class="origin">KENYA</div><h3>Embu</h3><p>Blackcurrant · Citrus · Red fruits<br>Washed · Ruiru 11 · Kamavindi</p><div class="coffee-bottom"><span data-price-label>KSh 1,250 / 250g<small class="coffee-other-sizes">Also in 100g and 1kg</small></span><button class="plus" type="button" aria-label="Add Embu to order">+</button></div></div></article>
 <!-- TODO: replace patterned photo with a unique Kenya AA bag image. -->
 <article class="coffee" data-product='{"id":"kenya_aa","name":"Kenya AA","origin":"Kenya · Kirinyaga"}'><div class="coffee-photo"><img src="assets/imani-kenya-aa-250g.webp" alt="Imani Kenya AA, Kenya Kirinyaga, washed, 250g bag" width="1200" height="1588" decoding="async" loading="eager"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kenya AA</h3><p>Blackcurrant · Citrus · Brown Sugar<br>Washed · SL28 · SL34</p><div class="coffee-bottom"><span data-price-label></span><button class="plus" type="button" aria-label="Add Kenya AA to order">+</button></div></div></article>
 <!-- TODO: needs unique photo: Kenya AB. -->
@@ -757,7 +763,7 @@ footer .footer-map:hover{background:var(--sand-200);border-color:var(--sand-200)
 <!-- TODO: needs unique photo: Nyeri AA Fruit Infused. -->
 <article class="coffee" data-product='{"id":"nyeri_aa_fruit_infused","name":"Nyeri AA Fruit Infused","origin":"Kenya · Nyeri"}'><div class="coffee-photo"><img src="assets/imani-kenya-shared-250g.webp" alt="Imani Nyeri AA Fruit Infused, Kenya Nyeri, fruit infused, 250g bag" width="1200" height="1588" decoding="async" loading="lazy"><span class="coffee-badge">Limited Edition</span></div><div class="coffee-body"><div class="origin">Kenya · Nyeri</div><h3>Nyeri AA Fruit Infused</h3><p>Berry · Tropical Fruit · Honey<br>Fruit Infused · AA</p><p class="fruit-infusion-note" hidden>Fruit infused: [FRUIT INFUSION EXPLANATION]</p><!-- TODO: fill before publishing --><div class="coffee-bottom"><span data-price-label></span><button class="plus" type="button" aria-label="Add Nyeri AA Fruit Infused to order">+</button></div></div></article>
 <!-- NOT DONE: supplied Ruiru 11 photo and label files are missing; using the existing non-shared coffee bag image until supplied. -->
-<article class="coffee" data-product='{"id":"kirinyaga_ruiru11_anaerobic","name":"Kirinyaga Anaerobic Ruiru 11","origin":"Kenya · Kirinyaga","altitude":"2000 masl","producer":"Kamavinde","intensity":4,"acidity":3,"weight":"250g"}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Coffee bag for Kirinyaga Anaerobic Ruiru 11" width="1200" height="1588" decoding="async" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kirinyaga Anaerobic Ruiru 11</h3><p>Mango · Orange · Chocolate<br>Anaerobic fermentation · Ruiru 11</p><div class="coffee-bottom"><span data-price-label></span><button class="plus" type="button" aria-label="Add Kirinyaga Anaerobic Ruiru 11 to order">+</button></div><a class="coffee-whatsapp" data-wa-message="Hi Imani, I'd like 1kg of Kirinyaga Anaerobic Ruiru 11" target="_blank" rel="noopener">Need 1kg? Ask on WhatsApp</a></div></article>
+<article class="coffee" data-product='{"id":"kirinyaga_ruiru11_anaerobic","name":"Kirinyaga Anaerobic Ruiru 11","origin":"Kenya · Kirinyaga","altitude":"2000 masl","producer":"Kamavindi","intensity":4,"acidity":3,"weight":"250g"}'><div class="coffee-photo"><img src="assets/kenya-coffee-bag.webp" alt="Coffee bag for Kirinyaga Anaerobic Ruiru 11" width="1200" height="1588" decoding="async" loading="lazy"></div><div class="coffee-body"><div class="origin">Kenya · Kirinyaga</div><h3>Kirinyaga Anaerobic Ruiru 11</h3><p>Mango · Orange · Chocolate<br>Anaerobic fermentation · Ruiru 11</p><div class="coffee-bottom"><span data-price-label></span><button class="plus" type="button" aria-label="Add Kirinyaga Anaerobic Ruiru 11 to order">+</button></div><a class="coffee-whatsapp" data-wa-message="Hi Imani, I'd like 1kg of Kirinyaga Anaerobic Ruiru 11" target="_blank" rel="noopener">Need 1kg? Ask on WhatsApp</a></div></article>
 </div>
 <section class="drip-bag-subsection" id="drip-bags" aria-labelledby="drip-bag-heading">
   <div class="drip-bag-header">
@@ -776,7 +782,7 @@ footer .footer-map:hover{background:var(--sand-200);border-color:var(--sand-200)
       <div class="coffee-body">
         <div class="origin">Kenya</div>
         <h3>Kenya Drip Bags</h3>
-        <p>Floral · Peach · Chocolate<br>Washed · SL24 · Kamavinde</p>
+        <p>Floral · Peach · Chocolate<br>Washed · SL24 · Kamavindi</p>
         <p>Pack: 10 drip bags</p>
         <div class="coffee-bottom">
           <span class="drip-bag-price" data-price-label></span>
@@ -797,14 +803,15 @@ footer .footer-map:hover{background:var(--sand-200);border-color:var(--sand-200)
 </div>
 </details>
 <script>
-const SIZES_ENABLED=['100g','250g','500g','1kg'];
+const SIZES_ENABLED=['100g','250g','1kg'];
 const PRICES_KES={
-  kenya_aa:{'100g':550,'250g':1250,'500g':2400,'1kg':4500},
-  kenya_ab:{'100g':500,'250g':1150,'500g':2200,'1kg':4150},
-  meru:{'100g':550,'250g':1250,'500g':2400,'1kg':4500},
-  meru_peaberry:{'100g':600,'250g':1350,'500g':2550,'1kg':4850},
-  nyeri_aa_fruit_infused:{'100g':650,'250g':1450,'500g':2750,'1kg':5200},
-  kirinyaga_ruiru11_anaerobic:{'100g':650,'250g':1400,'500g':2650,'1kg':5050}
+  kenya_embu:{'100g':550,'250g':1250,'1kg':4500},
+  kenya_aa:{'100g':550,'250g':1250,'1kg':4500},
+  kenya_ab:{'100g':500,'250g':1150,'1kg':4150},
+  meru:{'100g':550,'250g':1250,'1kg':4500},
+  meru_peaberry:{'100g':600,'250g':1350,'1kg':4850},
+  nyeri_aa_fruit_infused:{'100g':650,'250g':1450,'1kg':5200},
+  kirinyaga_ruiru11_anaerobic:{'100g':650,'250g':1400,'1kg':5050}
 };
 const DRIP_BOX_PRICE=1400;
 const FREE_DELIVERY_THRESHOLD=2500;
@@ -850,8 +857,8 @@ const SHOW_INTRO_RATE=false;
     const price=product.id==='drip_box'?DRIP_BOX_PRICE:PRICES_KES[product.id]['250g'];
     if(!Number.isInteger(price)||price<=0)throw new Error(`Missing valid price for product: ${product.id}`);
     const priceLabel=body.querySelector('[data-price-label]');
-    if(priceLabel)priceLabel.textContent=`${formatDataPrice(price)} / ${product.id==='drip_box'?'10 drip bags':'250g'}`;
-    if(priceLabel&&product.id!=='drip_box'){
+    if(priceLabel&&product.id!=='kenya_embu')priceLabel.textContent=`${formatDataPrice(price)} / ${product.id==='drip_box'?'10 drip bags':'250g'}`;
+    if(priceLabel&&product.id!=='drip_box'&&product.id!=='kenya_embu'){
       const otherSizes=SIZES_ENABLED.filter(size=>size!=='250g');
       const otherSizeLabel=document.createElement('small');
       otherSizeLabel.className='coffee-other-sizes';
@@ -942,10 +949,23 @@ const SHOW_INTRO_RATE=false;
     photoLayer.appendChild(img);
     const labelLayer=document.createElement('div');
     labelLayer.className='product-label-layer';
-    labelLayer.setAttribute('role','img');
-    labelLayer.setAttribute('aria-label',`${name} label`);
+    if(product.id!=='kenya_embu'){
+      labelLayer.setAttribute('role','img');
+      labelLayer.setAttribute('aria-label',`${name} label`);
+    }
     labelLayer.setAttribute('aria-hidden','true');
-    labelLayer.innerHTML=renderLabel(product,origin,notes,process,variety,intensity,acidity);
+    if(product.id==='kenya_embu'){
+      const labelImage=document.createElement('img');
+      labelImage.src='assets/imani-embu-label-pop.webp';
+      labelImage.alt='Imani Kenya Embu label';
+      labelImage.width=1086;
+      labelImage.height=1448;
+      labelImage.decoding='async';
+      labelImage.loading='lazy';
+      labelLayer.appendChild(labelImage);
+    }else{
+      labelLayer.innerHTML=renderLabel(product,origin,notes,process,variety,intensity,acidity);
+    }
     media.prepend(labelLayer);
     const badge=media.querySelector('.coffee-badge');
     if(badge){badge.style.zIndex='10';}
@@ -973,9 +993,9 @@ const SHOW_INTRO_RATE=false;
       toggle.setAttribute('aria-label',labelVisible?'View bag photo':'View label');
     };
     card.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch')card.classList.add('is-label-visible');updateLayerAccessibility();});
-    card.addEventListener('pointerleave',event=>{if(event.pointerType!=='touch')card.classList.remove('is-label-visible');updateLayerAccessibility();});
-    card.addEventListener('focusin',updateLayerAccessibility);
-    card.addEventListener('focusout',()=>requestAnimationFrame(updateLayerAccessibility));
+    card.addEventListener('pointerleave',event=>{if(event.pointerType!=='touch'&&!card.matches(':focus-within'))card.classList.remove('is-label-visible');updateLayerAccessibility();});
+    card.addEventListener('focusin',event=>{if(event.target!==toggle)card.classList.add('is-label-visible');updateLayerAccessibility();});
+    card.addEventListener('focusout',()=>requestAnimationFrame(()=>{if(!card.matches(':focus-within'))card.classList.remove('is-label-visible');updateLayerAccessibility();}));
     updateLayerAccessibility();
     const addButton=body.querySelector('.plus');
     if(addButton)addButton.setAttribute('aria-label',`Add ${name} to order`);
@@ -1274,6 +1294,28 @@ const formatPrice=value=>`KSh ${value.toLocaleString('en-KE')}`;
 let currentProduct=null;
 let optionsTrigger=null;
 const sizeOptions=document.querySelector('.opt-grid--size');
+const EMBU_IMAGES={'100g':'assets/imani-embu-100g.webp','250g':'assets/imani-embu-250g.webp','1kg':'assets/imani-embu-1kg.webp'};
+const embuCard=document.querySelector('.coffee[data-product*="kenya_embu"]');
+const embuCardImage=embuCard&&embuCard.querySelector('.product-photo-layer img');
+const optionsProductPreview=document.createElement('div');
+optionsProductPreview.className='options-product-preview';
+optionsProductPreview.hidden=true;
+const optionsProductImage=document.createElement('img');
+optionsProductImage.alt='Imani Kenya Embu washed Ruiru 11, 250g bag';
+optionsProductImage.width=1086;
+optionsProductImage.height=1448;
+optionsProductImage.decoding='async';
+optionsProductImage.loading='lazy';
+optionsProductPreview.appendChild(optionsProductImage);
+document.getElementById('options-content').before(optionsProductPreview);
+function updateEmbuImage(size){
+  const imagePath=EMBU_IMAGES[size];
+  if(!imagePath)return;
+  const alt=`Imani Kenya Embu washed Ruiru 11, ${size} bag`;
+  if(embuCardImage)embuCardImage.src=imagePath;
+  optionsProductImage.src=imagePath;
+  optionsProductImage.alt=alt;
+}
 function renderSizeOptions(productId){
   const availableSizes=SIZES_ENABLED.filter(size=>{
     const prices=PRICES_KES[productId];
@@ -1297,7 +1339,28 @@ function renderCart(){const count=cart.reduce((sum,item)=>sum+item.quantity,0),t
 function setCartOpen(open){const restoreFocus=!open&&cartDrawer.contains(document.activeElement);cartDrawer.classList.toggle('open',open);cartBackdrop.classList.toggle('open',open);cartDrawer.setAttribute('aria-hidden',String(!open));if(open)cartDrawer.removeAttribute('inert');else cartDrawer.setAttribute('inert','');document.querySelector('.cart-toggle').setAttribute('aria-expanded',String(open));if(open){cartDrawer.querySelector('.cart-close').focus();}else if(restoreFocus){document.querySelector('.cart-toggle').focus();}}
 function closeOptionsModal(){if(!optionsModal.hidden){optionsModal.hidden=true;document.body.classList.remove('options-modal-open');if(optionsTrigger&&optionsTrigger.isConnected)optionsTrigger.focus();}}
 function addCartItem(item){if(!Number.isFinite(item.price)||item.price<=0)throw new Error(`Invalid cart price for ${item.name}`);const existing=cart.find(product=>product.name===item.name&&product.grind===item.grind&&product.size===item.size);if(existing)existing.quantity+=1;else cart.push({...item,quantity:1});renderCart();}
-function updatePriceDisplay(){if(!currentProduct)return;const sizeInput=document.querySelector('input[name="size"]:checked'),display=document.getElementById('price-display'),addButton=document.getElementById('options-add'),price=sizeInput?getProductPrice(currentProduct.id,sizeInput.value):null;display.textContent=sizeInput?(Number.isFinite(price)&&price>0?formatPrice(price):'Price unavailable'):'Select a size';addButton.disabled=!(Number.isFinite(price)&&price>0);}
+function updatePriceDisplay(){
+  if(!currentProduct)return;
+  const sizeInput=document.querySelector('input[name="size"]:checked');
+  const display=document.getElementById('price-display');
+  const addButton=document.getElementById('options-add');
+  const price=sizeInput?getProductPrice(currentProduct.id,sizeInput.value):null;
+  display.textContent=sizeInput?(Number.isFinite(price)&&price>0?formatPrice(price):'Price unavailable'):'Select a size';
+  addButton.disabled=!(Number.isFinite(price)&&price>0);
+  if(currentProduct.id!=='kenya_embu'){
+    optionsProductPreview.hidden=true;
+    return;
+  }
+  optionsProductPreview.hidden=false;
+  updateEmbuImage(sizeInput&&price?sizeInput.value:'250g');
+  if(sizeInput&&price&&embuCard){
+    const cardPrice=embuCard.querySelector('[data-price-label]');
+    if(cardPrice&&cardPrice.firstChild)cardPrice.firstChild.textContent=`${formatPrice(price)} / ${sizeInput.value}`;
+    const otherSizes=SIZES_ENABLED.filter(size=>size!==sizeInput.value);
+    const otherSizeLabel=cardPrice&&cardPrice.querySelector('.coffee-other-sizes');
+    if(otherSizeLabel)otherSizeLabel.textContent=`Also in ${otherSizes.join(' and ')}`;
+  }
+}
 document.querySelectorAll('.coffee').forEach(card=>{const button=card.querySelector('.plus');if(button)button.addEventListener('click',()=>{const productData=JSON.parse(card.getAttribute('data-product'));optionsTrigger=button;if(productData.id==='drip_box'){addCartItem({name:productData.name,origin:productData.origin,grind:'Pack of 10',size:'10 drip bags',price:DRIP_BOX_PRICE});setCartOpen(true);return;}if(!renderSizeOptions(productData.id).length)throw new Error(`Missing valid enabled size prices for product: ${productData.id}`);currentProduct=productData;document.getElementById('options-title').textContent=`Select Options - ${productData.name}`;document.querySelector('input[name="grind"]').checked=true;updatePriceDisplay();optionsModal.hidden=false;document.body.classList.add('options-modal-open');document.getElementById('grind-whole').focus();});});
 document.querySelectorAll('input[name="grind"]').forEach(radio=>radio.addEventListener('change',updatePriceDisplay));
 sizeOptions.addEventListener('change',updatePriceDisplay);
